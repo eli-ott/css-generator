@@ -1,0 +1,111 @@
+@font-face {
+  font-family: contentFont;
+  src: url("../font/AnonymousPro-Regular.ttf");
+}
+@font-face {
+  font-family: header;
+  src: url("../font/Anton-Regular.ttf");
+}
+* {
+  box-sizing: border-box;
+  font-family: contentFont;
+  margin: 0;
+  padding: 0;
+  color: #0e0e0e;
+  background: #f1f1f1;
+}
+
+header {
+  text-align: center;
+  margin: 5vh 0 0 0;
+  padding-bottom: 17vh;
+  width: 100vw;
+  border-bottom: solid #ab2de6 2px;
+}
+header h1 {
+  font-family: header;
+  font-size: 5vh;
+  letter-spacing: 0.5vh;
+}
+header p {
+  font-family: contentFont;
+  font-size: 2vh;
+}
+
+section#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+}
+section#content > nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-items: flex-start;
+  position: absolute;
+  background: none;
+  height: 10vh;
+  width: 50%;
+  margin-top: -60.5vh;
+  margin-right: -15vw;
+}
+section#content > nav input[type=button] {
+  outline: none;
+  cursor: pointer;
+  padding: 0 1vh;
+  height: 3.5vh;
+  font-size: 1.5vh;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  border: solid #0e0e0e 1px;
+}
+section#content > nav input[type=button]:hover {
+  border-color: #ab2de6;
+  background: #ab2de6;
+  color: #f1f1f1;
+}
+section#content > nav input[type=button].active {
+  border-color: #ab2de6;
+  background: #ab2de6;
+  color: #f1f1f1;
+}
+section#content > div:nth-of-type(1) {
+  width: 50vw;
+  height: 50vh;
+  border-right: solid #ab2de6 1px;
+}
+section#content > div:nth-of-type(1) > input[type=button] {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  font-family: contentFont;
+  font-size: 2vh;
+  height: 5vh;
+  width: 13vw;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border: solid 2px #ab2de6;
+  color: #ab2de6;
+}
+section#content > div:nth-of-type(1) > input[type=button]:hover {
+  color: #f1f1f1;
+  background: #ab2de6;
+}
+section#content > div:nth-of-type(2) {
+  width: 50vw;
+  height: 50vh;
+}/*# sourceMappingURL=main.css.map */

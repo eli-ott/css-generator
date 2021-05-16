@@ -1,0 +1,28 @@
+$color: #0e0e0e;
+$background: #f1f1f1;
+$contrast: #ab2de6;
+
+@mixin flex($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: center;
+} 
+
+@font-face {
+    font-family: contentFont;
+    src: url('../font/AnonymousPro-Regular.ttf');
+}
+@font-face {
+    font-family: header;
+    src: url('../font/Anton-Regular.ttf');
+}
+
+*{
+    box-sizing: border-box;
+    font-family: contentFont;
+    margin: 0;
+    padding: 0;
+    color: $color;
+    background: $background;       
+} 

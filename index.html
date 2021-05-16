@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+        src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
+    <link rel="stylesheet" href="./style/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            CSS3 code generator
+        </h1>
+        <p>
+            Create beautifull buttons <u>whithout coding</u>
+        </p>
+    </header>
+    <section id="content">
+        <div id="button">
+            <input id="btn" type="button" value="Button">
+        </div>
+
+        <nav>
+            <div id="btnStateChoice">
+                <input type="button" value="Passive" class="state active" index="0">
+                <input type="button" value="Hover" class="state" index="1">
+                <input type="button" value="Click" class="state" index="2">
+            </div>
+            <div id="btnChanges">
+                <input type="button" value="Font Style" class="group active">
+                <input type="button" value="Borders and Outline" class="group">
+                <input type="button" value="Dimensions" class="group">
+                <input type="button" value="Colors" class="group">
+            </div>
+        </nav>
+
+        <div id="inputs">
+            <div id="passive">
+                <div class="fontStyle">
+                    <input type="text" id="value" placeholder="Value" value="Button">
+                    <input type="text" id="fontFamily" placeholder="Font-family">
+                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
+                        placeholder="font-weight">
+                </div>
+
+                <div class="dimensions">
+                    <input type="text" id="height" placeholder="Height">
+                    <input type="text" id="width" placeholder="Width">
+                    <input type="text" id="marginRight" placeholder="Margin-right">
+                    <input type="text" id="marginLeft" placeholder="Margin-left">
+                    <input type="text" id="marginTop" placeholder="Margin-top">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
+                    <input type="text" id="paddingRight" placeholder="Padding-right">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left">
+                    <input type="text" id="paddingTop" placeholder="Padding-top">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
+                    <input type="text" id="lineHeight" placeholder="Line-height">
+                </div>
+
+                <div class="bordersAndOutline">
+                    <div id="right">
+                        <select id="borderRightType" aria-placeholder="border-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderRightWidth" min="0" max="50" step="1"
+                            placeholder="border-right-width">
+                        <input type="range" id="borderRightRadius" min="0" max="100" step="1"
+                            placeholder="border-top-right-radius">
+                        <select id="outlineRightType" aria-placeholder="outline-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="left">
+                        <select id="borderLeftType" aria-placeholder="border-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
+                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="top">
+                        <select id="borderTopType" aria-placeholder="border-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
+                        <select id="outlineTopType" aria-placeholder="outline-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="bottom">
+                        <select id="borderBottomType" aria-placeholder="border-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
+                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+                </div>
+                <div class="colors">
+                    <input type="text" id="color" placeholder="Color">
+                    <select id="backgroundType">
+                        <option value="none">None</option>
+                        <option value="flat">Flat</option>
+                        <option value="linear-gradient">Linear-Gradient</option>
+                        <option value="radial-gradient">Radial-Gradient</option>
+                    </select>
+                    <input type="text" id="backgroundColor" placeholder="Background-color">
+                    <input type="text" id="borderColor" placeholder="Border-color">
+                    <input type="text" id="outlineColor" placeholder="Outline-color">
+                </div>
+            </div>
+
+            <div id="hover">
+                <div class="fontStyle">
+                    <input type="text" id="value" placeholder="Value" value="Coucou">
+                    <input type="text" id="fontFamilyInput" placeholder="Font-family">
+                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
+                        placeholder="font-weight">
+                </div>
+
+                <div class="dimensions">
+                    <input type="text" id="height" placeholder="Height">
+                    <input type="text" id="width" placeholder="Width">
+                    <input type="text" id="marginRight" placeholder="Margin-right">
+                    <input type="text" id="marginLeft" placeholder="Margin-left">
+                    <input type="text" id="marginTop" placeholder="Margin-top">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
+                    <input type="text" id="paddingRight" placeholder="Padding-right">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left">
+                    <input type="text" id="paddingTop" placeholder="Padding-top">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
+                    <input type="text" id="lineHeight" placeholder="Line-height">
+                </div>
+
+                <div class="bordersAndOutline">
+                    <div id="right">
+                        <select id="borderRightType" aria-placeholder="border-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderRightWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderRightRadius" min="0" max="100" step="1">
+                        <select id="outlineRightType" aria-placeholder="outline-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="left">
+                        <select id="borderLeftType" aria-placeholder="border-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
+                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="top">
+                        <select id="borderTopType" aria-placeholder="border-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
+                        <select id="outlineTopType" aria-placeholder="outline-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="bottom">
+                        <select id="borderBottomType" aria-placeholder="border-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
+                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+                </div>
+                <div class="colors">
+                    <input type="text" id="color" placeholder="Color">
+                    <select id="backgroundType">
+                        <option value="none">None</option>
+                        <option value="flat">Flat</option>
+                        <option value="linear-gradient">Linear-Gradient</option>
+                        <option value="radial-gradient">Radial-Gradient</option>
+                    </select>
+                    <input type="text" id="backgroundColor" placeholder="Background-color">
+                    <input type="text" id="borderColor" placeholder="Border-color">
+                    <input type="text" id="outlineColor" placeholder="Outline-color">
+                </div>
+            </div>
+
+            <div id="click">
+                <div class="fontStyle">
+                    <input type="text" id="value" placeholder="Button value" value="blabla">
+                    <input type="text" id="fontFamilyInput" placeholder="Font-family">
+                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
+                        placeholder="font-weight">
+                </div>
+
+                <div class="dimensions">
+                    <input type="text" id="height" placeholder="Height">
+                    <input type="text" id="width" placeholder="Width">
+                    <input type="text" id="marginRight" placeholder="Margin-right">
+                    <input type="text" id="marginLeft" placeholder="Margin-left">
+                    <input type="text" id="marginTop" placeholder="Margin-top">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
+                    <input type="text" id="paddingRight" placeholder="Padding-right">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left">
+                    <input type="text" id="paddingTop" placeholder="Padding-top">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
+                    <input type="text" id="lineHeight" placeholder="Line-height">
+                </div>
+
+                <div class="bordersAndOutline">
+                    <div id="right">
+                        <select id="borderRightType" aria-placeholder="border-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderRightWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderRightRadius" min="0" max="100" step="1">
+                        <select id="outlineRightType" aria-placeholder="outline-right-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="left">
+                        <select id="borderLeftType" aria-placeholder="border-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
+                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="top">
+                        <select id="borderTopType" aria-placeholder="border-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
+                        <select id="outlineTopType" aria-placeholder="outline-top-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="bottom">
+                        <select id="borderBottomType" aria-placeholder="border-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
+                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
+                            <option value="none">None</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="dashed">Dashed</option>
+                            <option selected value="solid">Solid</option>
+                            <option value="double">Double</option>
+                            <option value="groove">Groove</option>
+                            <option value="ridge">Ridge</option>
+                            <option value="inset">Inset</option>
+                            <option value="outset">Outset</option>
+                        </select>
+                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
+                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+                </div>
+                <div class="colors">
+                    <input type="text" id="color" placeholder="Color">
+                    <select id="backgroundType">
+                        <option value="none">None</option>
+                        <option value="flat">Flat</option>
+                        <option value="linear-gradient">Linear-Gradient</option>
+                        <option value="radial-gradient">Radial-Gradient</option>
+                    </select>
+                    <input type="text" id="backgroundColor" placeholder="Background-color">
+                    <input type="text" id="borderColor" placeholder="Border-color">
+                    <input type="text" id="outlineColor" placeholder="Outline-color">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="./js/nav.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+
+</html>
