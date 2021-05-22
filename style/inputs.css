@@ -1,0 +1,120 @@
+@font-face {
+  font-family: contentFont;
+  src: url("../font/AnonymousPro-Regular.ttf");
+}
+@font-face {
+  font-family: header;
+  src: url("../font/Anton-Regular.ttf");
+}
+* {
+  box-sizing: border-box;
+  font-family: contentFont;
+  margin: 0;
+  padding: 0;
+  color: #0e0e0e;
+  background: #f1f1f1;
+}
+
+div#inputs input {
+  outline: none;
+  font-size: 15px;
+  padding: 0.5vh;
+  height: 3vh;
+  border: solid 1px #0e0e0e;
+  color: #0e0e0e;
+}
+div#inputs input:focus, div#inputs input:hover {
+  border-color: #ab2de6;
+}
+div#inputs input.numbers {
+  width: 3vw;
+}
+div#inputs input.numbers::-webkit-input-placeholder {
+  opacity: 0;
+}
+div#inputs input.numbers:-moz-placeholder {
+  opacity: 0;
+}
+div#inputs input.numbers::-moz-placeholder {
+  opacity: 0;
+}
+div#inputs input.numbers:-ms-input-placeholder {
+  opacity: 0;
+}
+
+div#inputs select {
+  outline: none;
+  height: 3vh;
+  font-size: 15px;
+  padding: 0.5vh;
+}
+div#inputs select > option {
+  font-size: 15px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  width: 20%;
+  height: 15px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0.7;
+  height: 15px;
+  width: 100%;
+  background: darkgray;
+}
+input[type=range]::-webkit-slider-runnable-track:hover {
+  opacity: 1;
+}
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  opacity: 0.7;
+  height: 15px;
+  width: 100%;
+  background: darkgray;
+}
+input[type=range]::-moz-range-track:hover {
+  opacity: 1;
+}
+input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0.7;
+  height: 15px;
+  width: 100%;
+  background: darkgray;
+}
+input[type=range]::-ms-track:hover {
+  opacity: 1;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ab2de6;
+}
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ab2de6;
+}
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ab2de6;
+}/*# sourceMappingURL=inputs.css.map */

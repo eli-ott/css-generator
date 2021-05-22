@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script
-        src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
+    <script src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
+    <link rel="stylesheet" href="./style/inputs.css">
     <link rel="stylesheet" href="./style/main.css">
     <title>Document</title>
 </head>
@@ -34,7 +34,7 @@
             </div>
             <div id="btnChanges">
                 <input type="button" value="Font Style" class="group active">
-                <input type="button" value="Borders and Outline" class="group">
+                <input type="button" value="Borders" class="group">
                 <input type="button" value="Dimensions" class="group">
                 <input type="button" value="Colors" class="group">
             </div>
@@ -45,28 +45,28 @@
                 <div class="fontStyle">
                     <input type="text" id="value" placeholder="Value" value="Button">
                     <input type="text" id="fontFamily" placeholder="Font-family">
-                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight">
                 </div>
 
                 <div class="dimensions">
-                    <input type="text" id="height" placeholder="Height">
-                    <input type="text" id="width" placeholder="Width">
-                    <input type="text" id="marginRight" placeholder="Margin-right">
-                    <input type="text" id="marginLeft" placeholder="Margin-left">
-                    <input type="text" id="marginTop" placeholder="Margin-top">
-                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
-                    <input type="text" id="paddingRight" placeholder="Padding-right">
-                    <input type="text" id="paddingLeft" placeholder="Padding-left">
-                    <input type="text" id="paddingTop" placeholder="Padding-top">
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
-                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
-                    <input type="text" id="lineHeight" placeholder="Line-height">
+                    <input type="text" id="height" placeholder="Height" class="numbers">
+                    <input type="text" id="width" placeholder="Width" class="numbers">
+                    <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
+                    <input type="text" id="marginLeft" placeholder="Margin-left" class="numbers">
+                    <input type="text" id="marginTop" placeholder="Margin-top" class="numbers">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom" class="numbers">
+                    <input type="text" id="paddingRight" placeholder="Padding-right" class="numbers">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left" class="numbers">
+                    <input type="text" id="paddingTop" placeholder="Padding-top" class="numbers">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" class="numbers">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
+                    <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
-                <div class="bordersAndOutline">
-                    <div id="right">
+                <div class="borders">
+                    <div id="border">
                         <select id="borderRightType" aria-placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -78,26 +78,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderRightWidth" min="0" max="50" step="1"
-                            placeholder="border-right-width">
-                        <input type="range" id="borderRightRadius" min="0" max="100" step="1"
-                            placeholder="border-top-right-radius">
-                        <select id="outlineRightType" aria-placeholder="outline-right-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="left">
                         <select id="borderLeftType" aria-placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -109,24 +89,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
-                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="top">
                         <select id="borderTopType" aria-placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -138,24 +100,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
-                        <select id="outlineTopType" aria-placeholder="outline-top-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="bottom">
                         <select id="borderBottomType" aria-placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -167,21 +111,21 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
-                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="borderWidthParent">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                    </div>
+
+                    <div id="borderRadius">
+                        <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner"> 
+                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
@@ -194,7 +138,6 @@
                     </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
-                    <input type="text" id="outlineColor" placeholder="Outline-color">
                 </div>
             </div>
 
@@ -202,28 +145,28 @@
                 <div class="fontStyle">
                     <input type="text" id="value" placeholder="Value" value="Coucou">
                     <input type="text" id="fontFamilyInput" placeholder="Font-family">
-                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight">
                 </div>
 
                 <div class="dimensions">
-                    <input type="text" id="height" placeholder="Height">
-                    <input type="text" id="width" placeholder="Width">
-                    <input type="text" id="marginRight" placeholder="Margin-right">
-                    <input type="text" id="marginLeft" placeholder="Margin-left">
-                    <input type="text" id="marginTop" placeholder="Margin-top">
-                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
-                    <input type="text" id="paddingRight" placeholder="Padding-right">
-                    <input type="text" id="paddingLeft" placeholder="Padding-left">
-                    <input type="text" id="paddingTop" placeholder="Padding-top">
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
-                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
-                    <input type="text" id="lineHeight" placeholder="Line-height">
+                    <input type="text" id="height" placeholder="Height" class="numbers">
+                    <input type="text" id="width" placeholder="Width" class="numbers">
+                    <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
+                    <input type="text" id="marginLeft" placeholder="Margin-left" class="numbers">
+                    <input type="text" id="marginTop" placeholder="Margin-top" class="numbers">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom" class="numbers">
+                    <input type="text" id="paddingRight" placeholder="Padding-right" class="numbers">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left" class="numbers">
+                    <input type="text" id="paddingTop" placeholder="Padding-top" class="numbers">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" class="numbers">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
+                    <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
-                <div class="bordersAndOutline">
-                    <div id="right">
+                <div class="borders">
+                    <div id="border">
                         <select id="borderRightType" aria-placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -235,24 +178,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderRightWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderRightRadius" min="0" max="100" step="1">
-                        <select id="outlineRightType" aria-placeholder="outline-right-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="left">
                         <select id="borderLeftType" aria-placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -264,24 +189,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
-                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="top">
                         <select id="borderTopType" aria-placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -293,24 +200,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
-                        <select id="outlineTopType" aria-placeholder="outline-top-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="bottom">
                         <select id="borderBottomType" aria-placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -322,21 +211,21 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
-                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="borderWidthParent">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                    </div>
+
+                    <div id="borderRadius">
+                        <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner"> 
+                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
@@ -349,7 +238,6 @@
                     </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
-                    <input type="text" id="outlineColor" placeholder="Outline-color">
                 </div>
             </div>
 
@@ -357,28 +245,28 @@
                 <div class="fontStyle">
                     <input type="text" id="value" placeholder="Button value" value="blabla">
                     <input type="text" id="fontFamilyInput" placeholder="Font-family">
-                    <input type="text" id="fontSize" placeholder="Font-size">
+                    <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight">
                 </div>
 
                 <div class="dimensions">
-                    <input type="text" id="height" placeholder="Height">
-                    <input type="text" id="width" placeholder="Width">
-                    <input type="text" id="marginRight" placeholder="Margin-right">
-                    <input type="text" id="marginLeft" placeholder="Margin-left">
-                    <input type="text" id="marginTop" placeholder="Margin-top">
-                    <input type="text" id="marginBottom" placeholder="Margin-bottom">
-                    <input type="text" id="paddingRight" placeholder="Padding-right">
-                    <input type="text" id="paddingLeft" placeholder="Padding-left">
-                    <input type="text" id="paddingTop" placeholder="Padding-top">
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom">
-                    <input type="text" id="letterSpacing" placeholder="Letter-spacing">
-                    <input type="text" id="lineHeight" placeholder="Line-height">
+                    <input type="text" id="height" placeholder="Height" class="numbers">
+                    <input type="text" id="width" placeholder="Width" class="numbers">
+                    <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
+                    <input type="text" id="marginLeft" placeholder="Margin-left" class="numbers">
+                    <input type="text" id="marginTop" placeholder="Margin-top" class="numbers">
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom" class="numbers">
+                    <input type="text" id="paddingRight" placeholder="Padding-right" class="numbers">
+                    <input type="text" id="paddingLeft" placeholder="Padding-left" class="numbers">
+                    <input type="text" id="paddingTop" placeholder="Padding-top" class="numbers">
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" class="numbers">
+                    <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
+                    <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
-                <div class="bordersAndOutline">
-                    <div id="right">
+                <div class="borders">
+                    <div id="border">
                         <select id="borderRightType" aria-placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -390,24 +278,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderRightWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderRightRadius" min="0" max="100" step="1">
-                        <select id="outlineRightType" aria-placeholder="outline-right-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineRightWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineRightRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="left">
                         <select id="borderLeftType" aria-placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -419,24 +289,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderLeftRadius" min="0" max="100" step="1">
-                        <select id="outlineLeftType" aria-placeholder="outline-left-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineLeftWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineLeftRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="top">
                         <select id="borderTopType" aria-placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -448,24 +300,6 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderTop-radius" min="0" max="100" step="1">
-                        <select id="outlineTopType" aria-placeholder="outline-top-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineTopWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineTopRadius" min="0" max="100" step="1">
-                    </div>
-
-                    <div id="bottom">
                         <select id="borderBottomType" aria-placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
@@ -477,21 +311,21 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <input type="range" id="borderBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="borderBottomRadius" min="0" max="100" step="1">
-                        <select id="outlineBottomType" aria-placeholder="outline-bottom-style">
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <input type="range" id="outlineBottomWidth" min="0" max="50" step="1">
-                        <input type="range" id="outlineBottomRadius" min="0" max="100" step="1">
+                    </div>
+
+                    <div id="borderWidthParent">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                    </div>
+
+                    <div id="borderRadius">
+                        <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner"> 
+                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
@@ -504,7 +338,6 @@
                     </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
-                    <input type="text" id="outlineColor" placeholder="Outline-color">
                 </div>
             </div>
         </div>
