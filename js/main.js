@@ -14,6 +14,18 @@ $("input[type='text']").on('keypress', function () {
             }, () => {
                 $("#btn").css($(this).attr('placeholder').toLowerCase(), oldVal);
             });
+        } else if (state == 'click') {
+            //defining the inital value of the button style before the click effect so the value is took before it changes
+            let oldVal = $("#btn").css($(this).attr('placeholder').toLowerCase());
+
+            //we change the style when the user is clicking the button
+            $("#btn").mousedown(() => {
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
+            });
+            //we change the style when the user releasing the click on the button
+            $("#btn").mouseup(() => {
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), oldVal);
+            });
         }
 
         if ($(this).attr('placeholder').toLowerCase() == 'value') {
@@ -38,16 +50,28 @@ $("input[type='range']").on('mouseup', function () {
             }, () => {
                 $("#btn").css($(this).attr('placeholder').toLowerCase(), oldVal);
             });
+        } else if (state == 'click') {
+            //defining the inital value of the button style before the hover effect so the value is took before it changes
+            let oldVal = $("#btn").css($(this).attr('placeholder').toLowerCase());
+
+            //we change the style when the user is clicking the button
+            $("#btn").mousedown(() => {
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
+            });
+            //we change the style when the user releasing the click on the button
+            $("#btn").mouseup(() => {
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), oldVal);
+            });
         }
     }, 150);
 });
 
 //we're getting the value of the select's options
 $('select').on('click', function () {
-    if (group == 'border') {
+    if (group == 'borders') {
         setTimeout(() => {
             if (state == 'passive') {
-                $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), $(this).val());
+                $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), $(this).val().toLowerCase());
             } else if (state == 'hover') {
                 //defining the initial value of the button style before the gover effect so the value is took before ut changes
                 let oldVal = $("#btn").css($(this).attr('aria-placeholder').toLowerCase());
@@ -56,6 +80,18 @@ $('select').on('click', function () {
                 $("#btn").hover(() => {
                     $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), $(this).val());
                 }, () => {
+                    $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), oldVal);
+                });
+            } else if (state == 'click') {
+                //defining the inital value of the button style before the hover effect so the value is took before it changes
+                let oldVal = $("#btn").css($(this).attr('aria-placeholder').toLowerCase());
+
+                //we change the style when the user is clicking the button
+                $("#btn").mousedown(() => {
+                    $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), $(this).val());
+                });
+                //we change the style when the user releasing the click on the button
+                $("#btn").mouseup(() => {
                     $("#btn").css($(this).attr('aria-placeholder').toLowerCase(), oldVal);
                 });
             }
