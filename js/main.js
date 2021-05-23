@@ -1,6 +1,15 @@
+let changedStyle = [];
+
 //we're getting the value of the text input.
 $("input[type='text']").on('keypress', function () {
     setTimeout(() => {
+        //pushing the changed style in the changedStyle array to reuse it in the cssCode.js
+        console.log($(this).attr('class'));
+        if($(this).attr('changed') != 'true'){
+            changedStyle.push($(this).attr('id'));
+            $(this).attr('changed', 'true');
+        }
+
         //apllying the style when the user change the input[type='text'] value
         if (state == 'passive') {
             $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
