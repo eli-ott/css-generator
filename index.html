@@ -6,9 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
+    <script
+        src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
     <link rel="stylesheet" href="./style/inputs.css">
     <link rel="stylesheet" href="./style/main.css">
+    <!-- style for the css code -->
+    <style>
+        span {
+            font-family: monospace;
+            font-size: 15px;
+        }
+
+        span.property {
+            color: brown;
+        }
+
+        span.pseudoElem{
+            font-style: italic;
+            color: steelblue;
+        }
+
+        span.punctuation {
+            color: slategrey;
+        }
+
+        span.attr {
+            color: red;
+        }
+
+        span.attrVal {
+            color: slateblue;
+        }
+    </style>
     <title>Document</title>
 </head>
 
@@ -67,7 +96,7 @@
 
                 <div class="borders">
                     <div id="border">
-                        <select id="borderRightStyle" aria-placeholder="border-right-style">
+                        <select id="borderRightStyle" placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -78,7 +107,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderLeftStyle" aria-placeholder="border-left-style">
+                        <select id="borderLeftStyle" placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -89,7 +118,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderTopStyle" aria-placeholder="border-top-style">
+                        <select id="borderTopStyle" placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -100,7 +129,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderBottomStyle" aria-placeholder="border-bottom-style">
+                        <select id="borderBottomStyle" placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -114,28 +143,27 @@
                     </div>
 
                     <div id="borderWidthParent">
-                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
+                            step="1">
                     </div>
 
                     <div id="borderRadius">
                         <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
-                        <img src="./icons/corner.svg" alt="corner"> 
-                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
+                            class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
+                        <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
+                            class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
                     <input type="text" id="color" placeholder="Color">
-                    <select id="backgroundType">
-                        <option value="none">None</option>
-                        <option value="flat">Flat</option>
-                        <option value="linear-gradient">Linear-Gradient</option>
-                        <option value="radial-gradient">Radial-Gradient</option>
-                    </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
                 </div>
@@ -143,7 +171,6 @@
 
             <div id="hover">
                 <div class="fontStyle">
-                    <input type="text" id="value" placeholder="Value" value="Coucou">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
@@ -167,7 +194,7 @@
 
                 <div class="borders">
                     <div id="border">
-                        <select id="borderRightStyle" aria-placeholder="border-right-style">
+                        <select id="borderRightStyle" placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -178,7 +205,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderLeftStyle" aria-placeholder="border-left-style">
+                        <select id="borderLeftStyle" placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -189,7 +216,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderTopStyle " aria-placeholder="border-top-style">
+                        <select id="borderTopStyle " placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -200,7 +227,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderBottomStyle" aria-placeholder="border-bottom-style">
+                        <select id="borderBottomStyle" placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -214,28 +241,27 @@
                     </div>
 
                     <div id="borderWidthParent">
-                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
+                            step="1">
                     </div>
 
                     <div id="borderRadius">
                         <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
-                        <img src="./icons/corner.svg" alt="corner"> 
-                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
+                            class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
+                        <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
+                            class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
                     <input type="text" id="color" placeholder="Color">
-                    <select id="backgroundType">
-                        <option value="none">None</option>
-                        <option value="flat">Flat</option>
-                        <option value="linear-gradient">Linear-Gradient</option>
-                        <option value="radial-gradient">Radial-Gradient</option>
-                    </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
                 </div>
@@ -243,7 +269,6 @@
 
             <div id="click">
                 <div class="fontStyle">
-                    <input type="text" id="value" placeholder="Button value" value="blabla">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
@@ -267,7 +292,7 @@
 
                 <div class="borders">
                     <div id="border">
-                        <select id="borderRightStyle" aria-placeholder="border-right-style">
+                        <select id="borderRightStyle" placeholder="border-right-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -278,7 +303,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderLeftStyle" aria-placeholder="border-left-style">
+                        <select id="borderLeftStyle" placeholder="border-left-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -289,7 +314,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderTopStyle " aria-placeholder="border-top-style">
+                        <select id="borderTopStyle " placeholder="border-top-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -300,7 +325,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderBottomStyle" aria-placeholder="border-bottom-style">
+                        <select id="borderBottomStyle" placeholder="border-bottom-style">
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -314,34 +339,40 @@
                     </div>
 
                     <div id="borderWidthParent">
-                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2" step="1">
+                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
+                            step="1">
                     </div>
 
                     <div id="borderRadius">
                         <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="topLeftRadius" placeholder="border-top-left-radius" class="numbers radius">
-                        <img src="./icons/corner.svg" alt="corner"> 
-                        <input type="text" id="topRightRadius" placeholder="border-top-right-radius" class="numbers radius">
+                        <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
+                            class="numbers radius">
+                        <img src="./icons/corner.svg" alt="corner">
+                        <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomRightRadius" placeholder="border-bottom-right-radius" class="numbers radius">
+                        <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
+                            class="numbers radius">
                         <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="bottomLeftRadius" placeholder="border-bottom-left-radius" class="numbers radius">
+                        <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
+                            class="numbers radius">
                     </div>
                 </div>
                 <div class="colors">
                     <input type="text" id="color" placeholder="Color">
-                    <select id="backgroundType">
-                        <option value="none">None</option>
-                        <option value="flat">Flat</option>
-                        <option value="linear-gradient">Linear-Gradient</option>
-                        <option value="radial-gradient">Radial-Gradient</option>
-                    </select>
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
                 </div>
             </div>
         </div>
     </section>
+    <div id="code">
+        <div id="codeBtn" onclick="generateValues()">
+            <img src="./icons/code.svg" alt="code icon">
+            Generate code
+        </div>
+        <p id="codeSample"></p>
+    </div>
 
     <script type="text/javascript" src="./js/nav.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
