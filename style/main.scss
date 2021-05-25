@@ -137,4 +137,9 @@ div#code {
             -o-transform: translateY(6px) rotate(360deg);
         }
     }
+    > div#copyImg > img#copy {
+        cursor: pointer;
+
+        width: 3vh;
+    }
 }

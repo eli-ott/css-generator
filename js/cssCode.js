@@ -56,5 +56,22 @@ const generateCode = () => {
     `;
 
     //we're appending the code we created
-    $("#codeSample").append(finalcode)
+    $("#codeSample").append(finalcode);
+    $("#copyImg").append("<img src='./icons/copy.svg' alt='copy to clipboard icon' id='copy' onclick='copyToClipboard()'>");
+}
+
+const copyToClipboard = () => {
+    //we're creating a new range and selecting the right content
+    let range = document.createRange();
+    range.selectNodeContents(document.getElementById('codeSample'));
+    
+    //we're removing other range that could be on the page
+    window.getSelection().removeAllRanges();
+
+    //we're copying the selection
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    
+    //we're removing the range
+    window.getSelection().removeAllRanges();
 }

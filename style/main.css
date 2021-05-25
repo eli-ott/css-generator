@@ -140,4 +140,8 @@ div#code div#codeBtn:hover > img {
   -moz-transform: translateY(6px) rotate(360deg);
   -ms-transform: translateY(6px) rotate(360deg);
   -o-transform: translateY(6px) rotate(360deg);
+}
+div#code > div#copyImg > img#copy {
+  cursor: pointer;
+  width: 3vh;
 }/*# sourceMappingURL=main.css.map */
