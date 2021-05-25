@@ -44,19 +44,32 @@ const generateCode = () => {
     $("#codeSample").empty();
 
     //we're defining the code content with the right class to highlight it after
-    let finalcode = `<span class='property'>input[type='button']</span><span class='punctuation'> {</span> <br>
+    passiveCSSCode = `<span class='property'>input[type='button']</span><span class='punctuation'> {</span> <br>
         ${passiveCSSCode.join('')}
-        <span class='punctuation'>}</span> <br>
-        <span class='property'>input[type='button']</span><span class='pseudoElem'>:hover</span><span class='punctuation'> {</span> <br>
+        <span class='punctuation'>}</span> <br>`;
+    hoverCSSCode = `<span class='property'>input[type='button']</span><span class='pseudoElem'>:hover</span><span class='punctuation'> {</span> <br>
         ${hoverCSSCode.join('')}
-        <span class='punctuation'>}</span> <br>
-        <span class='property'>input[type='button']</span><span class='pseudoElem'>:focus</span><span class='punctuation'> {</span> <br>
+        <span class='punctuation'>}</span> <br>`;
+    clickCSSCode = `<span class='property'>input[type='button']</span><span class='pseudoElem'>:focus</span><span class='punctuation'> {</span> <br>
         ${clickCSSCode.join('')}
-        <span class='punctuation'>}</span> <br>
-    `;
+        <span class='punctuation'>}</span> <br>`;
 
-    //we're appending the code we created
-    $("#codeSample").append(finalcode);
+    //defining the value of the three part when there's no changes
+    let normalPassiveLength = 147;
+    let normalHoverClickLength = 185;
+
+    //check if there was a change in the three categories to append them
+    if (passiveCSSCode.length > normalPassiveLength) {
+        $("#codeSample").append(passiveCSSCode);
+    }
+    if (hoverCSSCode.length > normalHoverClickLength) {
+        $("#codeSample").append(hoverCSSCode);
+    }
+    if (clickCSSCode.length > normalHoverClickLength) {
+        $("#codeSample").append(clickCSSCode);
+    }
+
+    //appending the copy to clipboard icon
     $("#copyImg").append("<img src='./icons/copy.svg' alt='copy to clipboard icon' id='copy' onclick='copyToClipboard()'>");
 }
 
@@ -64,14 +77,14 @@ const copyToClipboard = () => {
     //we're creating a new range and selecting the right content
     let range = document.createRange();
     range.selectNodeContents(document.getElementById('codeSample'));
-    
+
     //we're removing other range that could be on the page
     window.getSelection().removeAllRanges();
 
     //we're copying the selection
     window.getSelection().addRange(range);
     document.execCommand('copy');
-    
+
     //we're removing the range
     window.getSelection().removeAllRanges();
 }
