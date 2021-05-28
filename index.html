@@ -10,7 +10,7 @@
         src="https://rawcdn.githack.com/eli-ott/javascript-library/fcc0dc36ac311a3bf303a5e66929e675553dd379/src/method/string.js"></script>
     <link rel="stylesheet" href="./style/inputs.css">
     <link rel="stylesheet" href="./style/main.css">
-    <!-- style for the css code -->
+    <!-- style for the css code  we display -->
     <style>
         span {
             font-family: monospace;
@@ -66,37 +66,43 @@
                 <input type="button" value="Borders" class="group">
                 <input type="button" value="Dimensions" class="group">
                 <input type="button" value="Colors" class="group">
+                <input type="button" value="Cursor" class="group">
             </div>
         </nav>
 
         <div id="inputs">
             <div id="passive">
+                <div class="cursor">
+                    <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
+                    <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
+                </div>
+
                 <div class="fontStyle">
                     <input type="text" id="value" placeholder="Value" value="Button">
-                    <input type="text" id="fontFamily" placeholder="Font-family">
-                    <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
+                    <input type="text" id="fontFamily" placeholder="Font-family" value="monospace" changed='true'>
+                    <input type="text" id="fontSize" placeholder="Font-size" value="2vh" class="numbers" changed='true'>
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight">
                 </div>
 
                 <div class="dimensions">
-                    <input type="text" id="height" placeholder="Height" class="numbers">
-                    <input type="text" id="width" placeholder="Width" class="numbers">
-                    <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
-                    <input type="text" id="marginLeft" placeholder="Margin-left" class="numbers">
-                    <input type="text" id="marginTop" placeholder="Margin-top" class="numbers">
-                    <input type="text" id="marginBottom" placeholder="Margin-bottom" class="numbers">
-                    <input type="text" id="paddingRight" placeholder="Padding-right" class="numbers">
-                    <input type="text" id="paddingLeft" placeholder="Padding-left" class="numbers">
-                    <input type="text" id="paddingTop" placeholder="Padding-top" class="numbers">
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" class="numbers">
+                    <input type="text" id="height" placeholder="Height" value="5vh" class="numbers" changed='true'>
+                    <input type="text" id="width" placeholder="Width" value="13vw" class="numbers" changed='true'>
+                    <input type="text" id="marginRight" placeholder="Margin-right" value="4vh" class="numbers" changed='true'>
+                    <input type="text" id="marginLeft" placeholder="Margin-left" value="4vh" class="numbers" changed='true'>
+                    <input type="text" id="marginTop" placeholder="Margin-top" value="4vh" class="numbers" changed='true'>
+                    <input type="text" id="marginBottom" placeholder="Margin-bottom" value="4vh" class="numbers">
+                    <input type="text" id="paddingRight" placeholder="Padding-right" value="1vh" class="numbers" changed='true'>
+                    <input type="text" id="paddingLeft" placeholder="Padding-left" value="1vh" class="numbers" changed='true'>
+                    <input type="text" id="paddingTop" placeholder="Padding-top" value="1vh" class="numbers" changed='true'>
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" value="1vh" class="numbers" changed='true'>
                     <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
                     <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
                 <div class="borders">
                     <div id="border">
-                        <select id="borderRightStyle" placeholder="border-right-style">
+                        <select id="borderRightStyle" placeholder="border-right-style" changed='true'>
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -107,7 +113,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderLeftStyle" placeholder="border-left-style">
+                        <select id="borderLeftStyle" placeholder="border-left-style" changed='true'>
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -118,7 +124,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderTopStyle" placeholder="border-top-style">
+                        <select id="borderTopStyle" placeholder="border-top-style" changed='true'>
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -129,7 +135,7 @@
                             <option value="inset">Inset</option>
                             <option value="outset">Outset</option>
                         </select>
-                        <select id="borderBottomStyle" placeholder="border-bottom-style">
+                        <select id="borderBottomStyle" placeholder="border-bottom-style" changed='true'>
                             <option value="none">None</option>
                             <option value="dotted">Dotted</option>
                             <option value="dashed">Dashed</option>
@@ -144,32 +150,37 @@
 
                     <div id="borderWidthParent">
                         <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
-                            step="1">
+                            step="1" changed='true'>
                     </div>
 
                     <div id="borderRadius">
                         <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
                         <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
-                            class="numbers radius">
+                            class="numbers radius" value="50px" changed='true'>
                         <img src="./icons/corner.svg" alt="corner">
                         <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
-                            class="numbers radius">
+                            class="numbers radius" value="50px" changed='true'>
                         <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
                         <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
-                            class="numbers radius">
+                            class="numbers radius" value="50px" changed='true'>
                         <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
                         <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
-                            class="numbers radius">
+                            class="numbers radius" value="50px" changed='true'>
                     </div>
                 </div>
                 <div class="colors">
-                    <input type="text" id="color" placeholder="Color">
-                    <input type="text" id="backgroundColor" placeholder="Background-color">
-                    <input type="text" id="borderColor" placeholder="Border-color">
+                    <input type="text" id="color" placeholder="Color" value='#ab2de6' changed='true'>
+                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#f1f1f1" changed='true'>
+                    <input type="text" id="borderColor" placeholder="Border-color" value="#ab2de6" changed='true'>
                 </div>
             </div>
 
             <div id="hover">
+                <div class="cursor">
+                    <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
+                    <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
+                </div>
+                
                 <div class="fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
@@ -261,13 +272,18 @@
                     </div>
                 </div>
                 <div class="colors">
-                    <input type="text" id="color" placeholder="Color">
-                    <input type="text" id="backgroundColor" placeholder="Background-color">
-                    <input type="text" id="borderColor" placeholder="Border-color">
+                    <input type="text" id="color" placeholder="Color" value='#fff' changed='true'>
+                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#ab2de6" changed='true'>
+                    <input type="text" id="borderColor" placeholder="Border-color" value="#ab2de6" changed='true'>
                 </div>
             </div>
 
             <div id="click">
+                <div class="cursor">
+                    <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
+                    <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
+                </div>
+                
                 <div class="fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">

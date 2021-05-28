@@ -142,3 +142,16 @@ $('select').on('click', function () {
         }
     }, 150);
 });
+
+//we trigger a keypress on the text inputs to change the button value
+for(let i = 0; i < document.getElementsByTagName("input[type='text']").length; i++){
+    document.getElementsByName("input[type='text']")[i].dispatchEvent(new Event('keypress'));
+}
+//we trigger a mouseup on the range inputs to change the button value
+for(let i = 0; i < document.getElementsByName("input[type='range']").length; i++){
+    document.getElementsByTagName("input[type='range']")[i].dispatchEvent(new Event('mouseup'));
+}
+//we trigger a click on the select to change the button value
+for(let i = 0; i < document.getElementsByName('select').length; i++){
+    document.getElementsByName('select')[i].dispatchEvent(new Event('click'));
+}

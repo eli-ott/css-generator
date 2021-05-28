@@ -44,32 +44,18 @@ const generateCode = () => {
     $("#codeSample").empty();
 
     //we're defining the code content with the right class to highlight it after
-    passiveCSSCode = `<span class='property'>input[type='button']</span><span class='punctuation'> {</span> <br>
+    let finalCode = `<span class='property'>input[type='button']</span><span class='punctuation'> {</span> <br>
         ${passiveCSSCode.join('')}
-        <span class='punctuation'>}</span> <br>`;
-    hoverCSSCode = `<span class='property'>input[type='button']</span><span class='pseudoElem'>:hover</span><span class='punctuation'> {</span> <br>
+        <span class='punctuation'>}</span> <br>
+        <span class='property'>input[type='button']</span><span class='pseudoElem'>:hover</span><span class='punctuation'> {</span> <br>
         ${hoverCSSCode.join('')}
-        <span class='punctuation'>}</span> <br>`;
-    clickCSSCode = `<span class='property'>input[type='button']</span><span class='pseudoElem'>:focus</span><span class='punctuation'> {</span> <br>
+        <span class='punctuation'>}</span> <br>
+        <span class='property'>input[type='button']</span><span class='pseudoElem'>:focus</span><span class='punctuation'> {</span> <br>
         ${clickCSSCode.join('')}
         <span class='punctuation'>}</span> <br>`;
 
-    //defining the value of the three part when there's no changes
-    let normalPassiveLength = 147;
-    let normalHoverClickLength = 185;
-
-    //check if there was a change in the three categories to append them
-    if (passiveCSSCode.length > normalPassiveLength) {
-        $("#codeSample").append(passiveCSSCode);
-    }
-    if (hoverCSSCode.length > normalHoverClickLength) {
-        $("#codeSample").append(hoverCSSCode);
-    }
-    if (clickCSSCode.length > normalHoverClickLength) {
-        $("#codeSample").append(clickCSSCode);
-    }
-
-    //appending the copy to clipboard icon
+    //appending the content and the copy to clipboard icon
+    $("#codeSample").append(finalCode);
     $("#copyImg").append("<img src='./icons/copy.svg' alt='copy to clipboard icon' id='copy' onclick='copyToClipboard()'>");
 }
 
