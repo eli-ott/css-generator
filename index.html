@@ -21,7 +21,7 @@
             color: brown;
         }
 
-        span.pseudoElem{
+        span.pseudoElem {
             font-style: italic;
             color: steelblue;
         }
@@ -66,12 +66,41 @@
                 <input type="button" value="Borders" class="group">
                 <input type="button" value="Dimensions" class="group">
                 <input type="button" value="Colors" class="group">
-                <input type="button" value="Cursor" class="group">
+                <input type="button" value="Cursor" class="group" id="cursorGroup">
+                <input type="button" value="Transitions" class="group" id="transitionGroup">
+                <input type="button" value="Shadows" class="group">
             </div>
         </nav>
 
         <div id="inputs">
             <div id="passive">
+                <div class="shadows">
+                    <div id="boxShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="range" id="spreadRadius" placeholder="Spread-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                    <div id="textShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                </div>
+
+                <div class="transitions">
+                    <input type="text" id="transitionProperty" placeholder="Transition-property" value="all"
+                        changed='true'>
+                    <input type="text" id="transitionDuration" placeholder="Transition-duration" value="0.3s"
+                        changed='true'>
+                    <input type="text" id="transitionDelay" placeholder="Transition-delay">
+                    <input type="text" id="transitionTmingFunction" placeholder="Transition-timing-function">
+                </div>
+
                 <div class="cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
@@ -88,14 +117,21 @@
                 <div class="dimensions">
                     <input type="text" id="height" placeholder="Height" value="5vh" class="numbers" changed='true'>
                     <input type="text" id="width" placeholder="Width" value="13vw" class="numbers" changed='true'>
-                    <input type="text" id="marginRight" placeholder="Margin-right" value="4vh" class="numbers" changed='true'>
-                    <input type="text" id="marginLeft" placeholder="Margin-left" value="4vh" class="numbers" changed='true'>
-                    <input type="text" id="marginTop" placeholder="Margin-top" value="4vh" class="numbers" changed='true'>
+                    <input type="text" id="marginRight" placeholder="Margin-right" value="4vh" class="numbers"
+                        changed='true'>
+                    <input type="text" id="marginLeft" placeholder="Margin-left" value="4vh" class="numbers"
+                        changed='true'>
+                    <input type="text" id="marginTop" placeholder="Margin-top" value="4vh" class="numbers"
+                        changed='true'>
                     <input type="text" id="marginBottom" placeholder="Margin-bottom" value="4vh" class="numbers">
-                    <input type="text" id="paddingRight" placeholder="Padding-right" value="1vh" class="numbers" changed='true'>
-                    <input type="text" id="paddingLeft" placeholder="Padding-left" value="1vh" class="numbers" changed='true'>
-                    <input type="text" id="paddingTop" placeholder="Padding-top" value="1vh" class="numbers" changed='true'>
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" value="1vh" class="numbers" changed='true'>
+                    <input type="text" id="paddingRight" placeholder="Padding-right" value="1vh" class="numbers"
+                        changed='true'>
+                    <input type="text" id="paddingLeft" placeholder="Padding-left" value="1vh" class="numbers"
+                        changed='true'>
+                    <input type="text" id="paddingTop" placeholder="Padding-top" value="1vh" class="numbers"
+                        changed='true'>
+                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" value="1vh" class="numbers"
+                        changed='true'>
                     <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
                     <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
@@ -170,17 +206,36 @@
                 </div>
                 <div class="colors">
                     <input type="text" id="color" placeholder="Color" value='#ab2de6' changed='true'>
-                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#f1f1f1" changed='true'>
+                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#f1f1f1"
+                        changed='true'>
                     <input type="text" id="borderColor" placeholder="Border-color" value="#ab2de6" changed='true'>
                 </div>
             </div>
 
             <div id="hover">
+                <div class="shadows">
+                    <div id="boxShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="range" id="spreadRadius" placeholder="Spread-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                    <div id="textShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                </div>
+
                 <div class="cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
                 </div>
-                
+
                 <div class="fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
@@ -273,17 +328,36 @@
                 </div>
                 <div class="colors">
                     <input type="text" id="color" placeholder="Color" value='#fff' changed='true'>
-                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#ab2de6" changed='true'>
+                    <input type="text" id="backgroundColor" placeholder="Background-color" value="#ab2de6"
+                        changed='true'>
                     <input type="text" id="borderColor" placeholder="Border-color" value="#ab2de6" changed='true'>
                 </div>
             </div>
 
             <div id="click">
+                <div class="shadows">
+                    <div id="boxShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="range" id="spreadRadius" placeholder="Spread-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                    <div id="textShadow">
+                        <input type="text" id="shadowType" placeholder="Shadow-type">
+                        <input type="range" id="offsetX" placeholder="Offset-x">
+                        <input type="range" id="offsetY" placeholder="Offset-y">
+                        <input type="range" id="blurRadius" placeholder="Blur-radius">
+                        <input type="text" id="shadowColor" placeholder="Shadow-color">
+                    </div>
+                </div>
+                
                 <div class="cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
                 </div>
-                
+
                 <div class="fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">

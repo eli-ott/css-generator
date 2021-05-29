@@ -7,6 +7,14 @@ $(".state").on("click", function () {
     $(`[value='${this.value}']`).attr('class', 'state active');
     state = this.value.toLowerCase();
     changeState();
+
+    //we check if the user is in a different state than passive to hide the transition group
+    if(state != 'passive') $('#transitionGroup').fadeOut(5);
+    else $("#transitionGroup").fadeIn(5);
+
+    //we check if the user is in the passive state to hide the cursor group
+    if(state == 'passive') $('#cursorGroup').fadeOut(5);
+    else $("#cursorGroup").fadeIn(5);
 });
 
 let group = 'fontStyle';
@@ -37,5 +45,6 @@ const changeGroup = () => {
     $(`.${group}`).eq(groupIndex).css('display', 'unset');
 }
 
+$("#cursorGroup").fadeOut(5);
 changeState();
 changeGroup();
