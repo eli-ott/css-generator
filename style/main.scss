@@ -103,6 +103,13 @@ section#content {
         width: 50vw;
         height: 40vh;
     }
+    label {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+}
 }
 div#code {
     div#codeBtn {

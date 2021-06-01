@@ -77,9 +77,12 @@
                 <div class="shadows">
                     <div id="boxShadow">
                         <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetX" placeholder="Offset-x">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetY" placeholder="Offset-y">
-                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow' id="boxBlurRadius" placeholder="Blur-radius">
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetX" placeholder="Offset-x"> <label for="boxOffsetX">0px</label>
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetY" placeholder="Offset-y"> <label for="boxOffsetY">0px</label>
+                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow'
+                            id="boxBlurRadius" placeholder="Blur-radius"> <label for="boxBlurRadius">0px</label>
                         <input type="text" shadowType='boxShadow' id="boxShadowColor" placeholder="Shadow-color">
                     </div>
                 </div>
@@ -103,7 +106,7 @@
                     <input type="text" id="fontFamily" placeholder="Font-family" value="monospace" changed='true'>
                     <input type="text" id="fontSize" placeholder="Font-size" value="2vh" class="numbers" changed='true'>
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
-                        placeholder="font-weight">
+                        placeholder="font-weight"> <label for="fontWeight">500</label>
                 </div>
 
                 <div class="dimensions">
@@ -178,7 +181,7 @@
 
                     <div id="borderWidthParent">
                         <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
-                            step="1" changed='true'>
+                            step="1" changed='true'> <label for="borderWidth">0px</label>
                     </div>
 
                     <div id="borderRadius">
@@ -208,9 +211,12 @@
                 <div class="shadows">
                     <div id="boxShadow">
                         <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetX" placeholder="Offset-x">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetY" placeholder="Offset-y">
-                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow' id="boxBlurRadius" placeholder="Blur-radius">
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetX" placeholder="Offset-x"> <label for="boxOffsetX">0px</label>
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetY" placeholder="Offset-y"> <label for="boxOffsetY">0px</label>
+                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow'
+                            id="boxBlurRadius" placeholder="Blur-radius"> <label for="boxBlurRadius">0px</label>
                         <input type="text" shadowType='boxShadow' id="boxShadowColor" placeholder="Shadow-color">
                     </div>
                 </div>
@@ -224,7 +230,7 @@
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
-                        placeholder="font-weight">
+                        placeholder="font-weight"> <label for="fontWeight">500</label>
                 </div>
 
                 <div class="dimensions">
@@ -292,7 +298,7 @@
 
                     <div id="borderWidthParent">
                         <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
-                            step="1">
+                            step="1"> <label for="borderWidth">0px</label>
                     </div>
 
                     <div id="borderRadius">
@@ -322,13 +328,16 @@
                 <div class="shadows">
                     <div id="boxShadow">
                         <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetX" placeholder="Offset-x">
-                        <input type="range" min="-50" max="50" step="1" value="0" shadowType='boxShadow' id="boxOffsetY" placeholder="Offset-y">
-                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow' id="boxBlurRadius" placeholder="Blur-radius">
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetX" placeholder="Offset-x"> <label for="boxOffsetX">0px</label>
+                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                            id="boxOffsetY" placeholder="Offset-y"> <label for="boxOffsetY">0px</label>
+                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow'
+                            id="boxBlurRadius" placeholder="Blur-radius"> <label for="boxBlurRadius">0px</label>
                         <input type="text" shadowType='boxShadow' id="boxShadowColor" placeholder="Shadow-color">
                     </div>
                 </div>
-                
+
                 <div class="cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
@@ -338,7 +347,7 @@
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
-                        placeholder="font-weight">
+                        placeholder="font-weight"> <label for="fontWeight">500</label>
                 </div>
 
                 <div class="dimensions">
@@ -406,7 +415,7 @@
 
                     <div id="borderWidthParent">
                         <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
-                            step="1">
+                            step="1"> <label for="boderWidth">0px</label>
                     </div>
 
                     <div id="borderRadius">
@@ -437,6 +446,7 @@
             <img src="./icons/code.svg" alt="code icon">
             Generate code
         </div>
+        <input type="button" value="Optimize Code" id="optimize" onclick="optimizeCode()">
         <div id="copyImg"></div>
         <p id="codeSample"></p>
     </div>

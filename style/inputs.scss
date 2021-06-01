@@ -48,10 +48,16 @@ input[type="range"] {
     appearance: none;
     outline: none;
     border: none;
-
+    
     padding: 0;
     width: 20%;
     height: 15px;
+
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
 
     &::-webkit-slider-runnable-track {
         -webkit-appearance: none;
@@ -81,7 +87,7 @@ input[type="range"] {
             opacity: 1;
         }
     }
-    &::-ms-track{
+    &::-ms-track {
         -webkit-appearance: none;
         appearance: none;
 
@@ -113,7 +119,7 @@ input[type="range"] {
 
         background: $contrast;
     }
-    &::-ms-thumb{
+    &::-ms-thumb {
         -webkit-appearance: none;
         appearance: none;
 

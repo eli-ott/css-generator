@@ -10,6 +10,7 @@ let clickStylesAttribute = [];
 let clickStylesValue = [];
 let clickCSSCode = [];
 
+let changedBorder = false;
 const generateValues = () => {
     //we get the value of the modified passive inputs and we push them inside an array
     for (let i = 0; i < $("#passive").find("[changed='true']").length; i++) {
