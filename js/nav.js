@@ -9,11 +9,11 @@ $(".state").on("click", function () {
     changeState();
 
     //we check if the user is in a different state than passive to hide the transition group
-    if(state != 'passive') $('#transitionGroup').fadeOut(5);
+    if (state != 'passive') $('#transitionGroup').fadeOut(5);
     else $("#transitionGroup").fadeIn(5);
 
     //we check if the user is in the passive state to hide the cursor group
-    if(state == 'passive') $('#cursorGroup').fadeOut(5);
+    if (state == 'passive') $('#cursorGroup').fadeOut(5);
     else $("#cursorGroup").fadeIn(5);
 });
 
@@ -32,8 +32,8 @@ $(".group").on("click", function () {
 const changeState = () => {
     $("#inputs").children().css('display', 'none');
     $(`#${state}`).css('display', 'unset');
-    
-    if(state == 'passive') groupIndex = 0;
+
+    if (state == 'passive') groupIndex = 0;
     else if (state == 'hover') groupIndex = 1;
     else if (state == 'click') groupIndex = 2;
     changeGroup();

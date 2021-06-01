@@ -12,19 +12,68 @@ let clickCSSCode = [];
 
 let changedBorder = false;
 const generateValues = () => {
-    //we get the value of the modified passive inputs and we push them inside an array
+    //we get the value of the modified inputs and we push them inside an the corresponding array
     for (let i = 0; i < $("#passive").find("[changed='true']").length; i++) {
-        passiveStylesAttribute[i] = $("#passive").find("[changed='true']").eq(i).attr('placeholder');
-        passiveStylesValue[i] = $("#passive").find("[changed='true']").eq(i).val();
+        if ($("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-type'
+            || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-x'
+            || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-y'
+            || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
+            || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
+            passiveStylesAttribute[i] = 'box-shadow';
+            passiveStylesValue[i] = `${$("#passive #boxShadowType").val()}
+                    ${$("#passive #boxOffsetX").val()}px
+                    ${$("#passive #boxOffsetY").val()}px
+                    ${$("#passive #boxBlurRadius").val()}px
+                    ${$("#passive #boxShadowColor").val()}`;
+        } else {
+            passiveStylesAttribute[i] = $("#passive").find("[changed='true']").eq(i).attr('placeholder');
+            passiveStylesValue[i] = $("#passive").find("[changed='true']").eq(i).val();
+        }
     }
     for (let i = 0; i < $("#hover").find("[changed='true']").length; i++) {
-        hoverStylesAttribute[i] = $("#hover").find("[changed='true']").eq(i).attr('placeholder');
-        hoverStylesValue[i] = $("#hover").find("[changed='true']").eq(i).val();
+        if ($("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-type'
+            || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-x'
+            || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-y'
+            || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
+            || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
+            hoverStylesAttribute[i] = 'box-shadow';
+            hoverStylesValue[i] = `${$("#hover #boxShadowType").val()}
+                    ${$("#hover #boxOffsetX").val()}px
+                    ${$("#hover #boxOffsetY").val()}px
+                    ${$("#hover #boxBlurRadius").val()}px
+                    ${$("#hover #boxShadowColor").val()}`;
+        } else {
+            hoverStylesAttribute[i] = $("#hover").find("[changed='true']").eq(i).attr('placeholder');
+            hoverStylesValue[i] = $("#hover").find("[changed='true']").eq(i).val();
+        }
     }
     for (let i = 0; i < $("#click").find("[changed='true']").length; i++) {
-        clickStylesAttribute[i] = $("#click").find("[changed='true']").eq(i).attr('placeholder');
-        clickStylesValue[i] = $("#click").find("[changed='true']").eq(i).val();
+        if ($("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-type'
+            || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-x'
+            || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Offset-y'
+            || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
+            || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
+            clickStylesAttribute[i] = 'box-shadow';
+            clickStylesValue[i] = `${$("#click #boxShadowType").val()}
+                    ${$("#click #boxOffsetX").val()}px
+                    ${$("#click #boxOffsetY").val()}px
+                    ${$("#click #boxBlurRadius").val()}px
+                    ${$("#click #boxShadowColor").val()}`;
+        } else {
+            clickStylesAttribute[i] = $("#click").find("[changed='true']").eq(i).attr('placeholder');
+            clickStylesValue[i] = $("#click").find("[changed='true']").eq(i).val();
+        }
     }
+
+    //We remove the duplicate values in the styles and attributes arrays 
+    passiveStylesAttribute = [...new Set(passiveStylesAttribute)];
+    passiveStylesValue = [...new Set(passiveStylesValue)];
+
+    hoverStylesAttribute = [...new Set(hoverStylesAttribute)];
+    hoverStylesValue = [...new Set(hoverStylesValue)];
+
+    clickStylesAttribute = [...new Set(clickStylesAttribute)];
+    clickStylesValue = [...new Set(clickStylesValue)];
 
     generateCode();
 }
@@ -41,8 +90,9 @@ const generateCode = () => {
         clickCSSCode[i] = `&nbsp; <span class='attr'>${clickStylesAttribute[i].toLowerCase()}</span><span class='punctuation'>:</span> &nbsp; <span class='attrVal'>${clickStylesValue[i]}</span><span class='punctuation'>;</span> <br/>`;
     }
 
-    //we're removing all the elements inside the code sample paragraph
+    //we're removing all the elements inside the code sample paragraph and the copy to clipboard icon
     $("#codeSample").empty();
+    $("#copyImg").empty();
 
     //we're defining the code content with the right class to highlight it after
     let finalCode = `<span class='property'>input[type='button']</span><span class='punctuation'> {</span> <br>

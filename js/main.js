@@ -86,7 +86,6 @@ $("input[type='text']").on('keypress', function () {
             $("#btn").mousedown(() => {
                 //changing the style for the box shadow
                 if ($(this).attr('shadowType') == 'boxShadow') {
-                    console.log(oldVal);
                     $("#btn").css(
                         'boxShadow',
                         `${$('#click > .shadows > #boxShadow > #boxShadowType').val()} 
@@ -267,6 +266,6 @@ for (let i = 0; i < document.getElementsByName('select').length; i++) {
 const displayRangeValues = elem => {
     //we append the value of the input inside the label
     $(`#${state} label[for='${elem.attr('id')}']`).empty();
-    if (elem.attr('id') == 'fontWeight')  $(`#${state}  label[for='${elem.attr('id')}']`).append($(elem).val());
+    if (elem.attr('id') == 'fontWeight') $(`#${state}  label[for='${elem.attr('id')}']`).append($(elem).val());
     else $(`#${state}  label[for='${elem.attr('id')}']`).append(`${$(elem).val()}px`);
 }
