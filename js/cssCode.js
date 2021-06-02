@@ -66,14 +66,7 @@ const generateValues = () => {
     }
 
     //We remove the duplicate values in the styles and attributes arrays 
-    passiveStylesAttribute = [...new Set(passiveStylesAttribute)];
-    passiveStylesValue = [...new Set(passiveStylesValue)];
-
-    hoverStylesAttribute = [...new Set(hoverStylesAttribute)];
-    hoverStylesValue = [...new Set(hoverStylesValue)];
-
-    clickStylesAttribute = [...new Set(clickStylesAttribute)];
-    clickStylesValue = [...new Set(clickStylesValue)];
+    
 
     generateCode();
 }
@@ -124,4 +117,139 @@ const copyToClipboard = () => {
 
     //we're removing the range
     window.getSelection().removeAllRanges();
+}
+
+const optimizeCode = () => {
+    //We lower case the arrays elements
+    passiveStylesAttribute = passiveStylesAttribute.map(element => { return element.toLowerCase(); });
+    passiveStylesValue = passiveStylesValue.map(element => { return element.toLowerCase() });
+    hoverStylesAttribute = hoverStylesAttribute.map(element => { return element.toLowerCase(); });
+    hoverStylesValue = hoverStylesValue.map(element => { return element.toLowerCase() });
+    clickStylesAttribute = clickStylesAttribute.map(element => { return element.toLowerCase(); });
+    clickStylesValue = clickStylesValue.map(element => { return element.toLowerCase() });
+
+    /* OPTIMIZING THE PASSIVE STYLE */
+    //optimizing the code for the transition
+    if (passiveStylesAttribute.includes('transition-property')
+        || passiveStylesAttribute.includes('transition-duration')
+        || passiveStylesAttribute.includes('transition-delay')
+        || passiveStylesAttribute.includes('transition-timing-function')) {
+        
+    }
+
+    //optimizing the code for the margin
+    if (passiveStylesAttribute.includes('margin-top')
+        || passiveStylesAttribute.includes('margin-bottom')
+        || passiveStylesAttribute.includes('margin-right')
+        || passiveStylesAttribute.includes('margin-left')) {
+        console.log('optimize margin');
+    }
+
+    //optimizing the code for the padding
+    if (passiveStylesAttribute.includes('padding-top')
+        || passiveStylesAttribute.includes('padding-bottom')
+        || passiveStylesAttribute.includes('padding-right')
+        || passiveStylesAttribute.includes('padding-left')) {
+        console.log('optimize padding');
+    }
+
+    //optimizing the code for the border radius
+    if (passiveStylesAttribute.includes('border-top-left-radius')
+        || passiveStylesAttribute.includes('border-top-right-radius')
+        || passiveStylesAttribute.includes('border-bottom-left-radius')
+        || passiveStylesAttribute.includes('border-bottom-right-radius')) {
+        console.log('optimizing border radius');
+    }
+
+    //optimizing the code for the border style
+    if (passiveStylesAttribute.includes('border-left-style')
+        || passiveStylesAttribute.includes('border-right-style')
+        || passiveStylesAttribute.includes('border-top-style')
+        || passiveStylesAttribute.includes('border-bottom-style')) {
+        console.log('optimizing border style');
+    }
+
+
+    /* OPTIMIZING THE HOVER STYLE */
+    //optimizing the code for the transition
+    if (hoverStylesAttribute.includes('transition-property')
+        || hoverStylesAttribute.includes('transition-duration')
+        || hoverStylesAttribute.includes('transition-delay')
+        || hoverStylesAttribute.includes('transition-timing-function')) {
+        console.log('optimize transition');
+    }
+
+    //optimizing the code for the margin
+    if (hoverStylesAttribute.includes('margin-top')
+        || hoverStylesAttribute.includes('margin-bottom')
+        || hoverStylesAttribute.includes('margin-right')
+        || hoverStylesAttribute.includes('margin-left')) {
+        console.log('optimize margin');
+    }
+
+    //optimizing the code for the padding
+    if (hoverStylesAttribute.includes('padding-top')
+        || hoverStylesAttribute.includes('padding-bottom')
+        || hoverStylesAttribute.includes('padding-right')
+        || hoverStylesAttribute.includes('padding-left')) {
+        console.log('optimize padding');
+    }
+
+    //optimizing the code for the border radius
+    if (hoverStylesAttribute.includes('border-top-left-radius')
+        || hoverStylesAttribute.includes('border-top-right-radius')
+        || hoverStylesAttribute.includes('border-bottom-left-radius')
+        || hoverStylesAttribute.includes('border-bottom-right-radius')) {
+        console.log('optimizing border radius');
+    }
+
+    //optimizing the code for the border style
+    if (hoverStylesAttribute.includes('border-left-style')
+        || hoverStylesAttribute.includes('border-right-style')
+        || hoverStylesAttribute.includes('border-top-style')
+        || hoverStylesAttribute.includes('border-bottom-style')) {
+        console.log('optimizing border style');
+    }
+
+
+    /* OPTIMIZING THE CLICK STYLE */
+    //optimizing the code for the transition
+    if (clickStylesAttribute.includes('transition-property')
+        || clickStylesAttribute.includes('transition-duration')
+        || clickStylesAttribute.includes('transition-delay')
+        || clickStylesAttribute.includes('transition-timing-function')) {
+        console.log('optimize transition');
+    }
+
+    //optimizing the code for the margin
+    if (clickStylesAttribute.includes('margin-top')
+        || clickStylesAttribute.includes('margin-bottom')
+        || clickStylesAttribute.includes('margin-right')
+        || clickStylesAttribute.includes('margin-left')) {
+        console.log('optimize margin');
+    }
+
+    //optimizing the code for the padding
+    if (clickStylesAttribute.includes('padding-top')
+        || clickStylesAttribute.includes('padding-bottom')
+        || clickStylesAttribute.includes('padding-right')
+        || clickStylesAttribute.includes('padding-left')) {
+        console.log('optimize padding');
+    }
+
+    //optimizing the code for the border radius
+    if (clickStylesAttribute.includes('border-top-left-radius')
+        || clickStylesAttribute.includes('border-top-right-radius')
+        || clickStylesAttribute.includes('border-bottom-left-radius')
+        || clickStylesAttribute.includes('border-bottom-right-radius')) {
+        console.log('optimizing border radius');
+    }
+
+    //optimizing the code for the border style
+    if (clickStylesAttribute.includes('border-left-style')
+        || clickStylesAttribute.includes('border-right-style')
+        || clickStylesAttribute.includes('border-top-style')
+        || clickStylesAttribute.includes('border-bottom-style')) {
+        console.log('optimizing border style');
+    }
 }

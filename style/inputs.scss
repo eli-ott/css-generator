@@ -52,13 +52,13 @@ input[type="range"] {
     padding: 0;
     width: 20%;
     height: 15px;
-
-    transform: translateY(10px);
-    -webkit-transform: translateY(10px);
-    -moz-transform: translateY(10px);
-    -ms-transform: translateY(10px);
-    -o-transform: translateY(10px);
-
+    
+    transform: translateY(0.3vh);
+    -webkit-transform: translateY(0.3vh);
+    -moz-transform: translateY(0.3vh);
+    -ms-transform: translateY(0.3vh);
+    -o-transform: translateY(0.3vh);
+    
     &::-webkit-slider-runnable-track {
         -webkit-appearance: none;
         appearance: none;
