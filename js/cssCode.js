@@ -72,6 +72,46 @@ const generateValues = () => {
             }
         }
     }
+
+    //We remove the box shadow duplicate attributes in the hoverStylesAttributes array
+    for (let i = 0;  i < hoverStylesAttribute.length; i++) {
+        for (let k = 0; k < hoverStylesAttribute.length; k++) {
+            if (hoverStylesAttribute[i] == hoverStylesAttribute[k] && hoverStylesAttribute[k] == 'box-shadow'){
+                hoverStylesAttribute.remove(k);
+            }
+        }
+    }
+
+    //We remove the box shadow duplicate values in the hoverStylesValues array
+    let boxShadowValue = [$("#hover #boxShadowType").val(), `${$("#hover #boxOffsetX").val()}px`, `${$("#hover #boxOffsetY").val()}px`,`${$("#hover #boxBlurRadius").val()}px`, $("#hover #boxShadowColor").val()];
+    for (let i = 0; i < hoverStylesValue.length; i++) {
+        for (let k = 0; k < hoverStylesValue.length; k++) {
+            console.log(hoverStylesValue[k].split(' ').areEqual(boxShadowValue), hoverStylesValue[k].split(' '));
+            if (hoverStylesValue[i] == hoverStylesValue[k] && hoverStylesValue[k].split(' ').areEqual(boxShadowValue)){
+                hoverStylesValue.remove(k);
+            }
+        }
+    }
+
+    //We remove the box shadow duplicate attributes in the clickStylesAttributes array
+    for (let i = 0;  i < clickStylesAttribute.length; i++) {
+        for (let k = 0; k < clickStylesAttribute.length; k++) {
+            if (clickStylesAttribute[i] == clickStylesAttribute[k] && clickStylesAttribute[k] == 'box-shadow'){
+                clickStylesAttribute.remove(k);
+            }
+        }
+    }
+
+    //We remove the box shadow duplicate values in the clickStylesValues array
+    let boxShadowValue = [$("#click #boxShadowType").val(), `${$("#click #boxOffsetX").val()}px`, `${$("#click #boxOffsetY").val()}px`,`${$("#click #boxBlurRadius").val()}px`, $("#click #boxShadowColor").val()];
+    for (let i = 0; i < clickStylesValue.length; i++) {
+        for (let k = 0; k < clickStylesValue.length; k++) {
+            console.log(clickStylesValue[k].split(' ').areEqual(boxShadowValue), clickStylesValue[k].split(' '));
+            if (clickStylesValue[i] == clickStylesValue[k] && clickStylesValue[k].split(' ').areEqual(boxShadowValue)){
+                clickStylesValue.remove(k);
+            }
+        }
+    }
     
 
     generateCode();
