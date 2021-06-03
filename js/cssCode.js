@@ -65,7 +65,24 @@ const generateValues = () => {
         }
     }
 
-    //We remove the duplicate values in the styles and attributes arrays 
+    //We remove the box shadow duplicate attributes in the passiveStylesAttributes array
+    for (let i = 0;  i < passiveStylesAttribute.length; i++) {
+        for (let k = 0; k < passiveStylesAttribute.length; k++) {
+            if (passiveStylesAttribute[i] == passiveStylesAttribute[k] && passiveStylesAttribute[k] == 'box-shadow'){
+                passiveStylesAttribute.remove(k);
+            }
+        }
+    }
+
+    //We remove the box shadow duplicate values in the passiveStylesValues array
+    let boxShadowValue = [$("#passive #boxShadowType").val(), `${$("#passive #boxOffsetX").val()}px`, `${$("#passive #boxOffsetY").val()}px`,`${$("#passive #boxBlurRadius").val()}px`, $("#passive #boxShadowColor").val()];
+    for (let i = 0; i < passiveStylesValue.length; i++) {
+        for (let k = 0; k < passiveStylesValue.length; k++) {
+            if (passiveStylesValue[i] == passiveStylesValue[k] && passiveStylesValue[k].split(' ').areEqual(boxShadowValue)){
+                passiveStylesValue.remove(k);
+            }
+        }
+    }
     
 
     generateCode();
