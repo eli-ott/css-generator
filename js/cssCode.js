@@ -20,11 +20,7 @@ const generateValues = () => {
             || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
             || $("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
             passiveStylesAttribute[i] = 'box-shadow';
-            passiveStylesValue[i] = `${$("#passive #boxShadowType").val()}
-                    ${$("#passive #boxOffsetX").val()}px
-                    ${$("#passive #boxOffsetY").val()}px
-                    ${$("#passive #boxBlurRadius").val()}px
-                    ${$("#passive #boxShadowColor").val()}`;
+            passiveStylesValue[i] = `${$("#passive #boxShadowType").val()} ${$("#passive #boxOffsetX").val()}px ${$("#passive #boxOffsetY").val()}px ${$("#passive #boxBlurRadius").val()}px ${$("#passive #boxShadowColor").val()}`;
         } else {
             passiveStylesAttribute[i] = $("#passive").find("[changed='true']").eq(i).attr('placeholder');
             passiveStylesValue[i] = $("#passive").find("[changed='true']").eq(i).val();
@@ -37,11 +33,7 @@ const generateValues = () => {
             || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
             || $("#hover").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
             hoverStylesAttribute[i] = 'box-shadow';
-            hoverStylesValue[i] = `${$("#hover #boxShadowType").val()}
-                    ${$("#hover #boxOffsetX").val()}px
-                    ${$("#hover #boxOffsetY").val()}px
-                    ${$("#hover #boxBlurRadius").val()}px
-                    ${$("#hover #boxShadowColor").val()}`;
+            hoverStylesValue[i] = `${$("#hover #boxShadowType").val()} ${$("#hover #boxOffsetX").val()}px ${$("#hover #boxOffsetY").val()}px ${$("#hover #boxBlurRadius").val()}px ${$("#hover #boxShadowColor").val()}`;
         } else {
             hoverStylesAttribute[i] = $("#hover").find("[changed='true']").eq(i).attr('placeholder');
             hoverStylesValue[i] = $("#hover").find("[changed='true']").eq(i).val();
@@ -54,11 +46,7 @@ const generateValues = () => {
             || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Blur-radius'
             || $("#click").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-color') {
             clickStylesAttribute[i] = 'box-shadow';
-            clickStylesValue[i] = `${$("#click #boxShadowType").val()}
-                    ${$("#click #boxOffsetX").val()}px
-                    ${$("#click #boxOffsetY").val()}px
-                    ${$("#click #boxBlurRadius").val()}px
-                    ${$("#click #boxShadowColor").val()}`;
+            clickStylesValue[i] = `${$("#click #boxShadowType").val()} ${$("#click #boxOffsetX").val()}px ${$("#click #boxOffsetY").val()}px ${$("#click #boxBlurRadius").val()}px ${$("#click #boxShadowColor").val()}`;
         } else {
             clickStylesAttribute[i] = $("#click").find("[changed='true']").eq(i).attr('placeholder');
             clickStylesValue[i] = $("#click").find("[changed='true']").eq(i).val();
@@ -78,6 +66,7 @@ const generateValues = () => {
     let boxShadowValue = [$("#passive #boxShadowType").val(), `${$("#passive #boxOffsetX").val()}px`, `${$("#passive #boxOffsetY").val()}px`,`${$("#passive #boxBlurRadius").val()}px`, $("#passive #boxShadowColor").val()];
     for (let i = 0; i < passiveStylesValue.length; i++) {
         for (let k = 0; k < passiveStylesValue.length; k++) {
+            console.log(passiveStylesValue[k].split(' ').areEqual(boxShadowValue), passiveStylesValue[k].split(' '));
             if (passiveStylesValue[i] == passiveStylesValue[k] && passiveStylesValue[k].split(' ').areEqual(boxShadowValue)){
                 passiveStylesValue.remove(k);
             }
