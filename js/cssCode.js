@@ -110,8 +110,7 @@ const generateValues = () => {
         }
     }
 
-
-    generateCode();
+    optimizeCode();
 }
 
 const generateCode = () => {
@@ -408,7 +407,7 @@ const optimizeCode = () => {
 
         //we pass the one line value in the hoverStylesAttributes and hoverStylesvalue arrays
         hoverStylesAttribute.push('border-radius');
-        hoverStylesValue.push(`${$("#hover #borTopLeftRadius").val()} ${$("#hover #borderTopRightRadius").val()} ${$("#hover #borderBottomRightRadius").val()} ${$("#hover #borderBottomLeftRadius").val()}`);
+        hoverStylesValue.push(`${$("#hover #borderTopLeftRadius").val()} ${$("#hover #borderTopRightRadius").val()} ${$("#hover #borderBottomRightRadius").val()} ${$("#hover #borderBottomLeftRadius").val()}`);
     }
 
     //optimizing the code for the border style
@@ -526,7 +525,7 @@ const optimizeCode = () => {
 
         //we pass the one line value in the clickStylesAttributes and clickStylesvalue arrays
         clickStylesAttribute.push('border-radius');
-        clickStylesValue.push(`${$("#click #borTopLeftRadius").val()} ${$("#click #borderTopRightRadius").val()} ${$("#click #borderBottomRightRadius").val()} ${$("#click #borderBottomLeftRadius").val()}`);
+        clickStylesValue.push(`${$("#click #borderTopLeftRadius").val()} ${$("#click #borderTopRightRadius").val()} ${$("#click #borderBottomRightRadius").val()} ${$("#click #borderBottomLeftRadius").val()}`);
     }
 
     //optimizing the code for the border style
@@ -558,9 +557,39 @@ const optimizeCode = () => {
         clickStylesValue.push(`${$("#click #borderTopStyle").val()} ${$("#click #borderRightStyle").val()} ${$("#click #borderBottomStyle").val()} ${$("#click #borderLeftStyle").val()}`);
     }
 
-    setTimeout(() => { generateCode(); }, 500);
+    crossBrowserCode();
 }
 
 const crossBrowserCode = () => {
+    let transitionCompatibility = [
+        '-webkit-transition',
+        '-moz-transition',
+        '-ms-transition',
+        '-o-transition'
+    ];
+    let borderRadiusCompatibility = [
+        '-webkit-border-radius',
+        '-moz-border-radius',
+        '-ms-border-radius',
+        '-o-border-radius'
+    ];
 
+    //We make the compatibility for the transitions
+    if (passiveStylesAttribute.includes('transition')) {
+        for (let i = 0; i < transitionCompatibility.length; i++) {
+            passiveStylesAttribute.push(transitionCompatibility[i]);
+            console.log(passiveStylesAttribute.indexOf('transition'));
+            passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('transition')]);
+        }
+    }
+    //We make the compatibility for the border-radius
+    if (passiveStylesAttribute.includes('border-radius')) {
+        for (let i = 0; i < borderRadiusCompatibility.length; i++) {
+            passiveStylesAttribute.push(borderRadiusCompatibility[i]);
+            console.log(passiveStylesAttribute.indexOf('border-radius'));
+            passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('border-radius')]);
+        }
+    }
+
+    generateCode();
 }
