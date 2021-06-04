@@ -54,70 +54,72 @@ const generateValues = () => {
     }
 
     //We remove the box shadow duplicate attributes in the passiveStylesAttributes array
-    for (let i = 0;  i < passiveStylesAttribute.length; i++) {
+    for (let i = 0; i < passiveStylesAttribute.length; i++) {
         for (let k = 0; k < passiveStylesAttribute.length; k++) {
-            if (passiveStylesAttribute[i] == passiveStylesAttribute[k] && passiveStylesAttribute[k] == 'box-shadow'){
+            if (passiveStylesAttribute[i] == passiveStylesAttribute[k] && passiveStylesAttribute[k] == 'box-shadow') {
                 passiveStylesAttribute.remove(k);
             }
         }
     }
 
     //We remove the box shadow duplicate values in the passiveStylesValues array
-    let boxShadowValue = [$("#passive #boxShadowType").val(), `${$("#passive #boxOffsetX").val()}px`, `${$("#passive #boxOffsetY").val()}px`,`${$("#passive #boxBlurRadius").val()}px`, $("#passive #boxShadowColor").val()];
+    let passiveBoxShadowValue = [$("#passive #boxShadowType").val(), `${$("#passive #boxOffsetX").val()}px`, `${$("#passive #boxOffsetY").val()}px`, `${$("#passive #boxBlurRadius").val()}px`, $("#passive #boxShadowColor").val()];
     for (let i = 0; i < passiveStylesValue.length; i++) {
         for (let k = 0; k < passiveStylesValue.length; k++) {
-            console.log(passiveStylesValue[k].split(' ').areEqual(boxShadowValue), passiveStylesValue[k].split(' '));
-            if (passiveStylesValue[i] == passiveStylesValue[k] && passiveStylesValue[k].split(' ').areEqual(boxShadowValue)){
+            if (passiveStylesValue[i] == passiveStylesValue[k] && passiveStylesValue[k].split(' ').areEqual(passiveBoxShadowValue)) {
                 passiveStylesValue.remove(k);
             }
         }
     }
 
     //We remove the box shadow duplicate attributes in the hoverStylesAttributes array
-    for (let i = 0;  i < hoverStylesAttribute.length; i++) {
+    for (let i = 0; i < hoverStylesAttribute.length; i++) {
         for (let k = 0; k < hoverStylesAttribute.length; k++) {
-            if (hoverStylesAttribute[i] == hoverStylesAttribute[k] && hoverStylesAttribute[k] == 'box-shadow'){
+            if (hoverStylesAttribute[i] == hoverStylesAttribute[k] && hoverStylesAttribute[k] == 'box-shadow') {
                 hoverStylesAttribute.remove(k);
             }
         }
     }
 
     //We remove the box shadow duplicate values in the hoverStylesValues array
-    let boxShadowValue = [$("#hover #boxShadowType").val(), `${$("#hover #boxOffsetX").val()}px`, `${$("#hover #boxOffsetY").val()}px`,`${$("#hover #boxBlurRadius").val()}px`, $("#hover #boxShadowColor").val()];
+    let hoverBoxShadowValue = [$("#hover #boxShadowType").val(), `${$("#hover #boxOffsetX").val()}px`, `${$("#hover #boxOffsetY").val()}px`, `${$("#hover #boxBlurRadius").val()}px`, $("#hover #boxShadowColor").val()];
     for (let i = 0; i < hoverStylesValue.length; i++) {
         for (let k = 0; k < hoverStylesValue.length; k++) {
-            console.log(hoverStylesValue[k].split(' ').areEqual(boxShadowValue), hoverStylesValue[k].split(' '));
-            if (hoverStylesValue[i] == hoverStylesValue[k] && hoverStylesValue[k].split(' ').areEqual(boxShadowValue)){
+            if (hoverStylesValue[i] == hoverStylesValue[k] && hoverStylesValue[k].split(' ').areEqual(hoverBoxShadowValue)) {
                 hoverStylesValue.remove(k);
             }
         }
     }
 
     //We remove the box shadow duplicate attributes in the clickStylesAttributes array
-    for (let i = 0;  i < clickStylesAttribute.length; i++) {
+    for (let i = 0; i < clickStylesAttribute.length; i++) {
         for (let k = 0; k < clickStylesAttribute.length; k++) {
-            if (clickStylesAttribute[i] == clickStylesAttribute[k] && clickStylesAttribute[k] == 'box-shadow'){
+            if (clickStylesAttribute[i] == clickStylesAttribute[k] && clickStylesAttribute[k] == 'box-shadow') {
                 clickStylesAttribute.remove(k);
             }
         }
     }
 
     //We remove the box shadow duplicate values in the clickStylesValues array
-    let boxShadowValue = [$("#click #boxShadowType").val(), `${$("#click #boxOffsetX").val()}px`, `${$("#click #boxOffsetY").val()}px`,`${$("#click #boxBlurRadius").val()}px`, $("#click #boxShadowColor").val()];
+    let clickBoxShadowValue = [$("#click #boxShadowType").val(), `${$("#click #boxOffsetX").val()}px`, `${$("#click #boxOffsetY").val()}px`, `${$("#click #boxBlurRadius").val()}px`, $("#click #boxShadowColor").val()];
     for (let i = 0; i < clickStylesValue.length; i++) {
         for (let k = 0; k < clickStylesValue.length; k++) {
-            console.log(clickStylesValue[k].split(' ').areEqual(boxShadowValue), clickStylesValue[k].split(' '));
-            if (clickStylesValue[i] == clickStylesValue[k] && clickStylesValue[k].split(' ').areEqual(boxShadowValue)){
+            if (clickStylesValue[i] == clickStylesValue[k] && clickStylesValue[k].split(' ').areEqual(clickBoxShadowValue)) {
                 clickStylesValue.remove(k);
             }
         }
     }
-    
+
 
     generateCode();
 }
 
 const generateCode = () => {
+    //we're emptying the CSS code arrays
+    passiveCSSCode = [];
+    hoverCSSCode = [];
+    clickCSSCode = [];
+
     //wwe create a line of code depending on the value that we got and the name of the property
     for (let i = 0; i < passiveStylesAttribute.length; i++) {
         passiveCSSCode[i] = `&nbsp; <span class='attr'>${passiveStylesAttribute[i].toLowerCase()}</span><span class='punctuation'>:</span> &nbsp; <span class='attrVal'>${passiveStylesValue[i]}</span><span class='punctuation'>;</span> <br/>`;
@@ -180,7 +182,28 @@ const optimizeCode = () => {
         || passiveStylesAttribute.includes('transition-duration')
         || passiveStylesAttribute.includes('transition-delay')
         || passiveStylesAttribute.includes('transition-timing-function')) {
-        
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (passiveStylesAttribute.includes('transition-property')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('transition-property') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#transitionProperty").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('transition-duration')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('transition-duration') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#transitionDuration").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('transition-delay')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('transition-delay') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#transitionDelay").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('transition-timing-function')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('transition-timing-function') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#transitionTimingFunction").val()) + 1);
+        }
+
+        //we pass the one line value in the passiveStylesAttributes and passiveStylesvalue arrays
+        passiveStylesAttribute.push('transition');
+        passiveStylesValue.push(`${$("#transitionProperty").val()} ${$("#transitionDuration").val()} ${$("#transitionDelay").val()} ${$("#transitionTimingFunction").val()}`);
     }
 
     //optimizing the code for the margin
@@ -188,15 +211,57 @@ const optimizeCode = () => {
         || passiveStylesAttribute.includes('margin-bottom')
         || passiveStylesAttribute.includes('margin-right')
         || passiveStylesAttribute.includes('margin-left')) {
-        console.log('optimize margin');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (passiveStylesAttribute.includes('margin-top')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('margin-top') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#marginTop").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('margin-bottom')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('margin-bottom') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#marginBottom").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('margin-left')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('margin-left') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#marginLeft").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('margin-right')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('margin-right') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#marginRight").val()) + 1);
+        }
+
+        //we pass the one line value in the passiveStylesAttributes and passiveStylesvalue arrays
+        passiveStylesAttribute.push('margin');
+        passiveStylesValue.push(`${$("#passive #marginTop").val()} ${$("#passive #marginRight").val()} ${$("#passive #marginBottom").val()} ${$("#passive #marginLeft").val()}`);
     }
 
-    //optimizing the code for the padding
+    // optimizing the code for the padding
     if (passiveStylesAttribute.includes('padding-top')
         || passiveStylesAttribute.includes('padding-bottom')
         || passiveStylesAttribute.includes('padding-right')
         || passiveStylesAttribute.includes('padding-left')) {
-        console.log('optimize padding');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (passiveStylesAttribute.includes('padding-top')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('padding-top') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#paddingTop").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('padding-bottom')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('padding-bottom') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#paddingBottom").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('padding-left')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('padding-left') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#paddingLeft").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('padding-right')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('padding-right') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#paddingRight").val()) + 1);
+        }
+
+        //we pass the one line value in the passiveStylesAttributes and passiveStylesvalue arrays
+        passiveStylesAttribute.push('padding');
+        passiveStylesValue.push(`${$("#passive #paddingTop").val()} ${$("#passive #paddingRight").val()} ${$("#passive #paddingBottom").val()} ${$("#passive #paddingLeft").val()}`);
     }
 
     //optimizing the code for the border radius
@@ -204,7 +269,28 @@ const optimizeCode = () => {
         || passiveStylesAttribute.includes('border-top-right-radius')
         || passiveStylesAttribute.includes('border-bottom-left-radius')
         || passiveStylesAttribute.includes('border-bottom-right-radius')) {
-        console.log('optimizing border radius');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (passiveStylesAttribute.includes('border-top-left-radius')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-top-left-radius') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderTopLeftRadius").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-top-right-radius')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-top-right-radius') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderTopRightRadius").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-bottom-right-radius')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-bottom-right-radius') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderBottomRightRadius").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-bottom-left-radius')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-bottom-left-radius') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderBottomLeftRadius").val()) + 1);
+        }
+
+        //we pass the one line value in the passiveStylesAttributes and passiveStylesvalue arrays
+        passiveStylesAttribute.push('border-radius');
+        passiveStylesValue.push(`${$("#passive #borderTopLeftRadius").val()} ${$("#passive #borderTopRightRadius").val()} ${$("#passive #borderBottomRightRadius").val()} ${$("#passive #borderBottomLeftRadius").val()}`);
     }
 
     //optimizing the code for the border style
@@ -212,25 +298,59 @@ const optimizeCode = () => {
         || passiveStylesAttribute.includes('border-right-style')
         || passiveStylesAttribute.includes('border-top-style')
         || passiveStylesAttribute.includes('border-bottom-style')) {
-        console.log('optimizing border style');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (passiveStylesAttribute.includes('border-left-style')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-left-style') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderLeftStyle").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-right-style')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-right-style') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderRightStyle").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-top-style')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-top-style') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderTopStyle").val()) + 1);
+        }
+        if (passiveStylesAttribute.includes('border-bottom-style')) {
+            passiveStylesAttribute.remove(passiveStylesAttribute.indexOf('border-bottom-style') + 1);
+            passiveStylesValue.remove(passiveStylesValue.indexOf($("#borderBottomStyle").val()) + 1);
+        }
+
+        //we pass the one line value in the passiveStylesAttributes and passiveStylesvalue arrays
+        passiveStylesAttribute.push('border-style');
+        passiveStylesValue.push(`${$("#passive #borderTopStyle").val()} ${$("#passive #borderRightStyle").val()} ${$("#passive #borderBottomStyle").val()} ${$("#passive #borderLeftStyle").val()}`);
     }
 
 
-    /* OPTIMIZING THE HOVER STYLE */
-    //optimizing the code for the transition
-    if (hoverStylesAttribute.includes('transition-property')
-        || hoverStylesAttribute.includes('transition-duration')
-        || hoverStylesAttribute.includes('transition-delay')
-        || hoverStylesAttribute.includes('transition-timing-function')) {
-        console.log('optimize transition');
-    }
-
+    // /* OPTIMIZING THE HOVER STYLE */
     //optimizing the code for the margin
     if (hoverStylesAttribute.includes('margin-top')
         || hoverStylesAttribute.includes('margin-bottom')
         || hoverStylesAttribute.includes('margin-right')
         || hoverStylesAttribute.includes('margin-left')) {
-        console.log('optimize margin');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (hoverStylesAttribute.includes('margin-top')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('margin-top') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#marginTop").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('margin-bottom')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('margin-bottom') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#marginBottom").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('margin-left')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('margin-left') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#marginLeft").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('margin-right')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('margin-right') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#marginRight").val()) + 1);
+        }
+
+        //we pass the one line value in the hoverStylesAttributes and hoverStylesvalue arrays
+        hoverStylesAttribute.push('margin');
+        hoverStylesValue.push(`${$("#hover #marginTop").val()} ${$("#hover #marginRight").val()} ${$("#hover #marginBottom").val()} ${$("#hover #marginLeft").val()}`);
     }
 
     //optimizing the code for the padding
@@ -238,7 +358,28 @@ const optimizeCode = () => {
         || hoverStylesAttribute.includes('padding-bottom')
         || hoverStylesAttribute.includes('padding-right')
         || hoverStylesAttribute.includes('padding-left')) {
-        console.log('optimize padding');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (hoverStylesAttribute.includes('padding-top')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('padding-top') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#paddingTop").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('padding-bottom')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('padding-bottom') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#paddingBottom").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('padding-left')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('padding-left') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#paddingLeft").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('padding-right')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('padding-right') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#paddingRight").val()) + 1);
+        }
+
+        //we pass the one line value in the hoverStylesAttributes and hoverStylesvalue arrays
+        hoverStylesAttribute.push('padding');
+        hoverStylesValue.push(`${$("#hover #paddingTop").val()} ${$("#hover #paddingRight").val()} ${$("#hover #paddingBottom").val()} ${$("#hover #paddingLeft").val()}`);
     }
 
     //optimizing the code for the border radius
@@ -246,7 +387,28 @@ const optimizeCode = () => {
         || hoverStylesAttribute.includes('border-top-right-radius')
         || hoverStylesAttribute.includes('border-bottom-left-radius')
         || hoverStylesAttribute.includes('border-bottom-right-radius')) {
-        console.log('optimizing border radius');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (hoverStylesAttribute.includes('border-top-left-radius')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-top-left-radius') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderTopLeftRadius").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-top-right-radius')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-top-right-radius') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderTopRightRadius").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-bottom-right-radius')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-bottom-right-radius') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderBottomRightRadius").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-bottom-left-radius')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-bottom-left-radius') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderBottomLeftRadius").val()) + 1);
+        }
+
+        //we pass the one line value in the hoverStylesAttributes and hoverStylesvalue arrays
+        hoverStylesAttribute.push('border-radius');
+        hoverStylesValue.push(`${$("#hover #borTopLeftRadius").val()} ${$("#hover #borderTopRightRadius").val()} ${$("#hover #borderBottomRightRadius").val()} ${$("#hover #borderBottomLeftRadius").val()}`);
     }
 
     //optimizing the code for the border style
@@ -254,25 +416,59 @@ const optimizeCode = () => {
         || hoverStylesAttribute.includes('border-right-style')
         || hoverStylesAttribute.includes('border-top-style')
         || hoverStylesAttribute.includes('border-bottom-style')) {
-        console.log('optimizing border style');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (hoverStylesAttribute.includes('border-left-style')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-left-style') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderLeftStyle").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-right-style')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-right-style') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderRightStyle").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-top-style')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-top-style') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderTopStyle").val()) + 1);
+        }
+        if (hoverStylesAttribute.includes('border-bottom-style')) {
+            hoverStylesAttribute.remove(hoverStylesAttribute.indexOf('border-bottom-style') + 1);
+            hoverStylesValue.remove(hoverStylesValue.indexOf($("#borderBottomStyle").val()) + 1);
+        }
+
+        //we pass the one line value in the hoverStylesAttributes and hoverStylesvalue arrays
+        hoverStylesAttribute.push('border-style');
+        hoverStylesValue.push(`${$("#hover #borderTopStyle").val()} ${$("#hover #borderRightStyle").val()} ${$("#hover #borderBottomStyle").val()} ${$("#hover #borderLeftStyle").val()}`);
     }
 
 
-    /* OPTIMIZING THE CLICK STYLE */
-    //optimizing the code for the transition
-    if (clickStylesAttribute.includes('transition-property')
-        || clickStylesAttribute.includes('transition-duration')
-        || clickStylesAttribute.includes('transition-delay')
-        || clickStylesAttribute.includes('transition-timing-function')) {
-        console.log('optimize transition');
-    }
-
+    // /* OPTIMIZING THE CLICK STYLE */
     //optimizing the code for the margin
     if (clickStylesAttribute.includes('margin-top')
         || clickStylesAttribute.includes('margin-bottom')
         || clickStylesAttribute.includes('margin-right')
         || clickStylesAttribute.includes('margin-left')) {
-        console.log('optimize margin');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (clickStylesAttribute.includes('margin-top')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('margin-top') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#marginTop").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('margin-bottom')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('margin-bottom') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#marginBottom").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('margin-left')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('margin-left') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#marginLeft").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('margin-right')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('margin-right') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#marginRight").val()) + 1);
+        }
+
+        //we pass the one line value in the clickStylesAttributes and clickStylesvalue arrays
+        clickStylesAttribute.push('margin');
+        clickStylesValue.push(`${$("#click #marginTop").val()} ${$("#click #marginRight").val()} ${$("#click #marginBottom").val()} ${$("#click #marginLeft").val()}`);
     }
 
     //optimizing the code for the padding
@@ -280,7 +476,28 @@ const optimizeCode = () => {
         || clickStylesAttribute.includes('padding-bottom')
         || clickStylesAttribute.includes('padding-right')
         || clickStylesAttribute.includes('padding-left')) {
-        console.log('optimize padding');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (clickStylesAttribute.includes('padding-top')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('padding-top') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#paddingTop").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('padding-bottom')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('padding-bottom') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#paddingBottom").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('padding-left')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('padding-left') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#paddingLeft").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('padding-right')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('padding-right') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#paddingRight").val()) + 1);
+        }
+
+        //we pass the one line value in the clickStylesAttributes and clickStylesvalue arrays
+        clickStylesAttribute.push('padding');
+        clickStylesValue.push(`${$("#click #paddingTop").val()} ${$("#click #paddingRight").val()} ${$("#click #paddingBottom").val()} ${$("#click #paddingLeft").val()}`);
     }
 
     //optimizing the code for the border radius
@@ -288,7 +505,28 @@ const optimizeCode = () => {
         || clickStylesAttribute.includes('border-top-right-radius')
         || clickStylesAttribute.includes('border-bottom-left-radius')
         || clickStylesAttribute.includes('border-bottom-right-radius')) {
-        console.log('optimizing border radius');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (clickStylesAttribute.includes('border-top-left-radius')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-top-left-radius') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderTopLeftRadius").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-top-right-radius')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-top-right-radius') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderTopRightRadius").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-bottom-right-radius')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-bottom-right-radius') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderBottomRightRadius").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-bottom-left-radius')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-bottom-left-radius') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderBottomLeftRadius").val()) + 1);
+        }
+
+        //we pass the one line value in the clickStylesAttributes and clickStylesvalue arrays
+        clickStylesAttribute.push('border-radius');
+        clickStylesValue.push(`${$("#click #borTopLeftRadius").val()} ${$("#click #borderTopRightRadius").val()} ${$("#click #borderBottomRightRadius").val()} ${$("#click #borderBottomLeftRadius").val()}`);
     }
 
     //optimizing the code for the border style
@@ -296,6 +534,33 @@ const optimizeCode = () => {
         || clickStylesAttribute.includes('border-right-style')
         || clickStylesAttribute.includes('border-top-style')
         || clickStylesAttribute.includes('border-bottom-style')) {
-        console.log('optimizing border style');
+
+        //we're removing the values that are present and we don't need after the refactoring
+        if (clickStylesAttribute.includes('border-left-style')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-left-style') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderLeftStyle").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-right-style')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-right-style') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderRightStyle").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-top-style')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-top-style') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderTopStyle").val()) + 1);
+        }
+        if (clickStylesAttribute.includes('border-bottom-style')) {
+            clickStylesAttribute.remove(clickStylesAttribute.indexOf('border-bottom-style') + 1);
+            clickStylesValue.remove(clickStylesValue.indexOf($("#borderBottomStyle").val()) + 1);
+        }
+
+        //we pass the one line value in the clickStylesAttributes and clickStylesvalue arrays
+        clickStylesAttribute.push('border-style');
+        clickStylesValue.push(`${$("#click #borderTopStyle").val()} ${$("#click #borderRightStyle").val()} ${$("#click #borderBottomStyle").val()} ${$("#click #borderLeftStyle").val()}`);
     }
+
+    setTimeout(() => { generateCode(); }, 500);
+}
+
+const crossBrowserCode = () => {
+
 }
