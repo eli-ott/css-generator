@@ -10,8 +10,18 @@ let clickStylesAttribute = [];
 let clickStylesValue = [];
 let clickCSSCode = [];
 
+//APPEND THE UNITS AT THE END OF THE NIPUT WHEN THE USER WRITE ON IT
+
 let changedBorder = false;
+
 const generateValues = () => {
+    //we add the units at the end of the inputs
+    for (let i = 0; i < $(".numbers").length; i++) {
+        if($(".numbers").eq(i).val() != '') {
+            $(".numbers").eq(i).val($('.numbers').eq(i).val() + "px");
+        }
+    }
+
     //we get the value of the modified inputs and we push them inside an the corresponding array
     for (let i = 0; i < $("#passive").find("[changed='true']").length; i++) {
         if ($("#passive").find("[changed='true']").eq(i).attr('placeholder') == 'Shadow-type'
@@ -141,7 +151,7 @@ const generateCode = () => {
         <span class='property'>input[type='button']</span><span class='pseudoElem'>:hover</span><span class='punctuation'> {</span> <br>
         ${hoverCSSCode.join('')}
         <span class='punctuation'>}</span> <br>
-        <span class='property'>input[type='button']</span><span class='pseudoElem'>:focus</span><span class='punctuation'> {</span> <br>
+        <span class='property'>input[type='button']</span><span class='pseudoElem'>:active</span><span class='punctuation'> {</span> <br>
         ${clickCSSCode.join('')}
         <span class='punctuation'>}</span> <br>`;
 
@@ -561,13 +571,13 @@ const optimizeCode = () => {
 }
 
 const crossBrowserCode = () => {
-    let transitionCompatibility = [
+    let transitionPrefix = [
         '-webkit-transition',
         '-moz-transition',
         '-ms-transition',
         '-o-transition'
     ];
-    let borderRadiusCompatibility = [
+    let borderRadiusPrefix = [
         '-webkit-border-radius',
         '-moz-border-radius',
         '-ms-border-radius',
@@ -576,16 +586,16 @@ const crossBrowserCode = () => {
 
     //We make the compatibility for the transitions
     if (passiveStylesAttribute.includes('transition')) {
-        for (let i = 0; i < transitionCompatibility.length; i++) {
-            passiveStylesAttribute.push(transitionCompatibility[i]);
+        for (let i = 0; i < transitionPrefix.length; i++) {
+            passiveStylesAttribute.push(transitionPrefix[i]);
             console.log(passiveStylesAttribute.indexOf('transition'));
             passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('transition')]);
         }
     }
     //We make the compatibility for the border-radius
     if (passiveStylesAttribute.includes('border-radius')) {
-        for (let i = 0; i < borderRadiusCompatibility.length; i++) {
-            passiveStylesAttribute.push(borderRadiusCompatibility[i]);
+        for (let i = 0; i < borderRadiusPrefix.length; i++) {
+            passiveStylesAttribute.push(borderRadiusPrefix[i]);
             console.log(passiveStylesAttribute.indexOf('border-radius'));
             passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('border-radius')]);
         }
