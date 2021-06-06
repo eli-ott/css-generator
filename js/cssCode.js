@@ -17,7 +17,7 @@ let changedBorder = false;
 const generateValues = () => {
     //we add the units at the end of the inputs
     for (let i = 0; i < $(".numbers").length; i++) {
-        if($(".numbers").eq(i).val() != '') {
+        if($(".numbers").eq(i).val() != '' && $(".numbers").eq(i).val().slice($(".numbers").eq(i).val().length - 2, $(".numbers").eq(i).val().length) != 'px') {
             $(".numbers").eq(i).val($('.numbers').eq(i).val() + "px");
         }
     }
@@ -158,22 +158,6 @@ const generateCode = () => {
     //appending the content and the copy to clipboard icon
     $("#codeSample").append(finalCode);
     $("#copyImg").append("<img src='./icons/copy.svg' alt='copy to clipboard icon' id='copy' onclick='copyToClipboard()'>");
-}
-
-const copyToClipboard = () => {
-    //we're creating a new range and selecting the right content
-    let range = document.createRange();
-    range.selectNodeContents(document.getElementById('codeSample'));
-
-    //we're removing other range that could be on the page
-    window.getSelection().removeAllRanges();
-
-    //we're copying the selection
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-
-    //we're removing the range
-    window.getSelection().removeAllRanges();
 }
 
 const optimizeCode = () => {
@@ -602,4 +586,28 @@ const crossBrowserCode = () => {
     }
 
     generateCode();
+}
+
+const copyToClipboard = () => {
+    //we're creating a new range and selecting the right content
+    let range = document.createRange();
+    range.selectNodeContents(document.getElementById('codeSample'));
+
+    //we're removing other range that could be on the page
+    window.getSelection().removeAllRanges();
+
+    //we're copying the selection
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+
+    //we're removing the range
+    window.getSelection().removeAllRanges();
+
+    //we create the animation to tell the user taht he copied the text
+    $("#copy").css('transform', 'rotate(360deg)');
+    $("#copy").attr('src', './icons/check.svg');
+    setTimeout(() => {
+        $("#copy").css('transform', 'rotate(0deg)');
+        $("#copy").attr('src', './icons/copy.svg'); 
+    }, 2000);
 }
