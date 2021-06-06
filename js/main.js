@@ -19,8 +19,10 @@ $("input[type='text']").on('keypress', function () {
                     ${$('#passive > .shadows > #boxShadow > #boxBlurRadius').val()}px 
                     ${$('#passive > .shadows > #boxShadow > #boxShadowColor').val()}`
                 );
+            } else if ($(this).attr('class') == 'numbers') {
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), `${$(this).val().toLowerCase()}px`);
             } else {
-                $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
+                $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val().toLowerCase());
             }
         } else if (state == 'hover') {
             //pushing the changed style in the hoverChangedStyle array to reuse it in the cssCode.js
@@ -37,6 +39,8 @@ $("input[type='text']").on('keypress', function () {
                     ${$('#passive > .shadows > #boxShadow > #boxOffsetY').val()}px 
                     ${$('#passive > .shadows > #boxShadow > #boxBlurRadius').val()}px 
                     ${$('#passive > .shadows > #boxShadow > #boxShadowColor').val()}`;
+            } else if ($(this).attr('class') == 'numbers') {
+                var oldVal = $('#passive').find(`#${$(this).attr('id')}`).val() + 'px';
             } else {
                 var oldVal = $('#passive').find(`#${$(this).attr('id')}`).val();
             }
@@ -53,8 +57,10 @@ $("input[type='text']").on('keypress', function () {
                         ${$('#hover > .shadows > #boxShadow > #boxBlurRadius').val()}px 
                         ${$('#hover > .shadows > #boxShadow > #boxShadowColor').val()}`
                     );
+                } else if ($(this).attr('class') == 'numbers') {
+                    $("#btn").css($(this).attr('placeholder').toLowerCase(), `${$(this).val().toLowerCase()}px`);
                 } else {
-                    $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
+                    $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val().toLowerCase());
                 }
             }, () => {
                 if ($(this).attr('shadowType') == 'boxShadow') {
@@ -78,6 +84,8 @@ $("input[type='text']").on('keypress', function () {
                     ${$('#hover > .shadows > #boxShadow > #boxOffsetY').val()}px 
                     ${$('#hover > .shadows > #boxShadow > #boxBlurRadius').val()}px 
                     ${$('#hover > .shadows > #boxShadow > #boxShadowColor').val()}`;
+            } else if ($(this).attr('class') == 'numbers') {
+                var oldVal = $('#hover').find(`#${$(this).attr('id')}`).val() + 'px';
             } else {
                 var oldVal = $('#hover').find(`#${$(this).attr('id')}`).val();
             }
@@ -94,8 +102,10 @@ $("input[type='text']").on('keypress', function () {
                         ${$('#click > .shadows > #boxShadow > #boxBlurRadius').val()}px 
                         ${$('#click > .shadows > #boxShadow > #boxShadowColor').val()}`
                     );
+                } else if ($(this).attr('class') == 'numbers') {
+                    $("#btn").css($(this).attr('placeholder').toLowerCase(), `${$(this).val().toLowerCase()}px`);
                 } else {
-                    $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
+                    $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val().toLowerCase());
                 }
             });
             //we change the style when the user releasing the click on the button

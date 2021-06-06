@@ -603,7 +603,7 @@ const copyToClipboard = () => {
     //we're removing the range
     window.getSelection().removeAllRanges();
 
-    //we create the animation to tell the user taht he copied the text
+    //we create the animation to tell the user that he copied the text
     $("#copy").css('transform', 'rotate(360deg)');
     $("#copy").attr('src', './icons/check.svg');
     setTimeout(() => {
