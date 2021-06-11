@@ -4,7 +4,7 @@ header {
     text-align: center;
 
     margin: 5vh 0 0 0;
-    padding-bottom: 17vh;
+    padding-bottom: 16.9vh;
     width: 100vw;
 
     border-bottom: solid $contrast 2px;
@@ -24,45 +24,7 @@ section#content {
     @include flex(row, space-around);
     width: 100vw;
 
-    > nav {
-        @include flex(column, space-between);
-        align-items: flex-start;
-        position: absolute;
-        background: none;
-
-        height: 10vh;
-        width: 50%;
-        margin-top: -60.5vh;
-        margin-right: -15vw;
-
-        input[type="button"] {
-            outline: none;
-            cursor: pointer;
-
-            padding: 0 1vh;
-            height: 3.5vh;
-            font-size: 1.5vh;
-            transition: 0.3s;
-            -webkit-transition: 0.3s;
-            -moz-transition: 0.3s;
-            -ms-transition: 0.3s;
-            -o-transition: 0.3s;
-            border: solid $color 1px;
-
-            &:hover {
-                border-color: $contrast;
-                background: $contrast;
-                color: $background;
-            }
-            &.active {
-                border-color: $contrast;
-                background: $contrast;
-                color: $background;
-            }
-        }
-    }
-
-    > div:nth-of-type(1) {
+    > div:nth-of-type(2) {
         width: 50vw;
         height: 40vh;
         border-right: solid $contrast 1px;
@@ -99,7 +61,7 @@ section#content {
             }
         }
     }
-    > div:nth-of-type(2) {
+    > div:nth-of-type(3) {
         width: 50vw;
         height: 40vh;
     }

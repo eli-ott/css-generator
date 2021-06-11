@@ -70,6 +70,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
+  border: none;
   opacity: 0.7;
   height: 15px;
   width: 100%;
@@ -82,6 +83,7 @@ input[type=range]::-moz-range-track {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+  border: none;
   opacity: 0.7;
   height: 15px;
   width: 100%;
@@ -93,6 +95,7 @@ input[type=range]::-moz-range-track:hover {
 input[type=range]::-ms-track {
   -webkit-appearance: none;
   appearance: none;
+  border: none;
   opacity: 0.7;
   height: 15px;
   width: 100%;
@@ -104,6 +107,7 @@ input[type=range]::-ms-track:hover {
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+  border: none;
   width: 15px;
   height: 15px;
   background: #ab2de6;
@@ -112,6 +116,7 @@ input[type=range]::-moz-range-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+  border: none;
   width: 15px;
   height: 15px;
   background: #ab2de6;
@@ -119,6 +124,7 @@ input[type=range]::-moz-range-thumb {
 input[type=range]::-ms-thumb {
   -webkit-appearance: none;
   appearance: none;
+  border: none;
   width: 15px;
   height: 15px;
   background: #ab2de6;

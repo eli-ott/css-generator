@@ -1,0 +1,25 @@
+@font-face {
+  font-family: contentFont;
+  src: url("../font/AnonymousPro-Regular.ttf");
+}
+@font-face {
+  font-family: header;
+  src: url("../font/Anton-Regular.ttf");
+}
+* {
+  box-sizing: border-box;
+  font-family: contentFont;
+  margin: 0;
+  padding: 0;
+  color: #0e0e0e;
+  background: #f1f1f1;
+}
+
+p.groups {
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin: 2vh;
+  font-size: 1.8vh;
+}/*# sourceMappingURL=groups.css.map */

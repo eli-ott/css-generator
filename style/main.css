@@ -18,7 +18,7 @@
 header {
   text-align: center;
   margin: 5vh 0 0 0;
-  padding-bottom: 17vh;
+  padding-bottom: 16.9vh;
   width: 100vw;
   border-bottom: solid #ab2de6 2px;
 }
@@ -39,48 +39,12 @@ section#content {
   align-items: center;
   width: 100vw;
 }
-section#content > nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  align-items: flex-start;
-  position: absolute;
-  background: none;
-  height: 10vh;
-  width: 50%;
-  margin-top: -60.5vh;
-  margin-right: -15vw;
-}
-section#content > nav input[type=button] {
-  outline: none;
-  cursor: pointer;
-  padding: 0 1vh;
-  height: 3.5vh;
-  font-size: 1.5vh;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  border: solid #0e0e0e 1px;
-}
-section#content > nav input[type=button]:hover {
-  border-color: #ab2de6;
-  background: #ab2de6;
-  color: #f1f1f1;
-}
-section#content > nav input[type=button].active {
-  border-color: #ab2de6;
-  background: #ab2de6;
-  color: #f1f1f1;
-}
-section#content > div:nth-of-type(1) {
+section#content > div:nth-of-type(2) {
   width: 50vw;
   height: 40vh;
   border-right: solid #ab2de6 1px;
 }
-section#content > div:nth-of-type(1) > input[type=button] {
+section#content > div:nth-of-type(2) > input[type=button] {
   cursor: pointer;
   outline: none;
   background: none;
@@ -104,11 +68,11 @@ section#content > div:nth-of-type(1) > input[type=button] {
   border: solid 2px #ab2de6;
   color: #ab2de6;
 }
-section#content > div:nth-of-type(1) > input[type=button]:hover {
+section#content > div:nth-of-type(2) > input[type=button]:hover {
   color: #f1f1f1;
   background: #ab2de6;
 }
-section#content > div:nth-of-type(2) {
+section#content > div:nth-of-type(3) {
   width: 50vw;
   height: 40vh;
 }

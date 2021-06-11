@@ -148,7 +148,7 @@ $("input[type='range']").on('mousemove', function () {
                 $("#btn").css($(this).attr('placeholder').toLowerCase(), $(this).val());
             }
         } else if (state == 'hover') {
-            //pushing the changed style in the hoverChangedStyle array to reuse it in the cssCode.js
+            //pushing the changed style in the hoverChangedStyle array to reuse it in the cssCode.js 
             if ($(this).attr('changed') != 'true') {
                 $(this).attr('changed', 'true');
             }

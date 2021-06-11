@@ -8,8 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://raw.githack.com/eli-ott/javascript-library/main/src/method/string.js"></script>
     <script src="https://raw.githack.com/eli-ott/javascript-library/main/src/method/array.js"></script>
+    <link rel="stylesheet" href="./style/nav.css">
     <link rel="stylesheet" href="./style/inputs.css">
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/groups.css">
     <!-- style for the css code  we display -->
     <style>
         span {
@@ -51,6 +53,10 @@
         </p>
     </header>
     <section id="content">
+        <div id="prefabs">
+
+        </div>
+
         <div id="button">
             <input id="btn" type="button" value="Button">
         </div>
@@ -76,132 +82,211 @@
             <div id="passive">
                 <div class="shadows">
                     <div id="boxShadow">
-                        <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
-                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
-                            id="boxOffsetX" placeholder="Offset-x"> <label for="boxOffsetX">0px</label>
-                        <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
-                            id="boxOffsetY" placeholder="Offset-y"> <label for="boxOffsetY">0px</label>
-                        <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow'
-                            id="boxBlurRadius" placeholder="Blur-radius"> <label for="boxBlurRadius">0px</label>
-                        <input type="text" shadowType='boxShadow' id="boxShadowColor" placeholder="Shadow-color">
+                        <p class="groups">
+                            Shadow-type :
+                            <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
+                        </p>
+                        <p class="groups">
+                            Offset-x :
+                            <input type="range" Xmin="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                                id="boxOffsetX" placeholder="Offset-x"> <label for="boxOffsetX">0px</label>
+                        </p>
+                        <p class="groups">
+                            Offset-y :
+                            <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
+                                id="boxOffsetY" placeholder="Offset-y"> <label for="boxOffsetY">0px</label>
+                        </p>
+                        <p class="groups">
+                            Blur-radius :
+                            <input type="range" min="0" max="50" step="1" value="0" shadowType='boxShadow'
+                                id="boxBlurRadius" placeholder="Blur-radius"> <label for="boxBlurRadius">0px</label>
+                        </p>
+                        <p class="groups">
+                            Shadow-color :
+                            <input type="text" shadowType='boxShadow' id="boxShadowColor" placeholder="Shadow-color">
+                        </p>
                     </div>
                 </div>
 
-                <div class="transitions">
-                    <input type="text" id="transitionProperty" placeholder="Transition-property" value="all"
-                        changed='true'>
-                    <input type="text" id="transitionDuration" placeholder="Transition-duration" value="0.3"
-                        class="numbers" changed='true'>s
-                    <input type="text" id="transitionDelay" placeholder="Transition-delay" class="numbers">s
-                    <select id="transitionTimingFunction" placeholder="Transition-timing-function">
-                        <option selected value="linear">Linear</option>
-                        <option value="ease">Ease</option>
-                        <option value="ease-in">Ease-in</option>
-                        <option value="ease-out">Ease-out</option>
-                        <option value="ease-in-out">Ease-in-out</option>
-                    </select>
+                <div class="groups transitions">
+                    <p class="groups">
+                        Transition-property :
+                        <input type="text" id="transitionProperty" placeholder="Transition-property" value="all"
+                            changed='true'>
+                    </p>
+                    <p class="groups">
+                        Transition-delay :
+                        <input type="text" id="transitionDuration" placeholder="Transition-duration" value="0.3"
+                            class="numbers" changed='true'>s
+                    </p>
+                    <p class="groups">
+                        Transition-delay :
+                        <input type="text" id="transitionDelay" placeholder="Transition-delay" class="numbers">s
+                    </p>
+                    <p class="groups">
+                        Transition-timing-function :
+                        <select id="transitionTimingFunction" placeholder="Transition-timing-function">
+                            <option selected value="linear">Linear</option>
+                            <option value="ease">Ease</option>
+                            <option value="ease-in">Ease-in</option>
+                            <option value="ease-out">Ease-out</option>
+                            <option value="ease-in-out">Ease-in-out</option>
+                        </select>
+                    </p>
                 </div>
 
                 <div class="fontStyle">
-                    <input type="text" id="value" placeholder="Value" value="Button">
-                    <input type="text" id="fontFamily" placeholder="Font-family" value="monospace" changed='true'>
-                    <input type="text" id="fontSize" placeholder="Font-size" value="2" class="numbers" changed='true'>
-                    <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
-                        placeholder="font-weight"> <label for="fontWeight">500</label>
+                    <p class="groups">
+                        Font-family :
+                        <input type="text" id="fontFamily" placeholder="Font-family" value="monospace" changed='true'>
+                    </p>
+                    <p class="groups">
+                        Font-size :
+                        <input type="text" id="fontSize" placeholder="Font-size" value="2" class="numbers"
+                            changed='true'>
+                    </p>
+                    <p class="groups">
+                        Font-weight :
+                        <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
+                            placeholder="font-weight"> <label for="fontWeight">500</label>
+                    </p>
+                    <p class="groups">
+                        Button value :
+                        <input type="text" id="value" placeholder="Value" value="Button">
+                    </p>
                 </div>
 
                 <div class="dimensions">
-                    <input type="text" id="height" placeholder="Height" value="16" class="numbers" changed='true'>
-                    <input type="text" id="width" placeholder="Width" value="24" class="numbers" changed='true'>
-                    <input type="text" id="marginRight" placeholder="Margin-right" value="10" class="numbers"
-                        changed='true'>
-                    <input type="text" id="marginLeft" placeholder="Margin-left" value="10" class="numbers"
-                        changed='true'>
-                    <input type="text" id="marginTop" placeholder="Margin-top" value="10" class="numbers"
-                        changed='true'>
-                    <input type="text" id="marginBottom" placeholder="Margin-bottom" value="10" class="numbers"
-                        changed='true'>
-                    <input type="text" id="paddingRight" placeholder="Padding-right" value="5" class="numbers"
-                        changed='true'>
-                    <input type="text" id="paddingLeft" placeholder="Padding-left" value="5" class="numbers"
-                        changed='true'>
-                    <input type="text" id="paddingTop" placeholder="Padding-top" value="5" class="numbers"
-                        changed='true'>
-                    <input type="text" id="paddingBottom" placeholder="Padding-bottom" value="5" class="numbers"
-                        changed='true'>
-                    <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
-                    <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
+                    <p class="groups">
+                        Height :
+                        <input type="text" id="height" placeholder="Height" value="16" class="numbers" changed='true'>
+                    </p>
+                    <p class="groups">
+                        Width :
+                        <input type="text" id="width" placeholder="Width" value="24" class="numbers" changed='true'>
+                    </p>
+                    <p class="groups">
+                        <u style="font-size: 2vh;">Margin :</u> <br> <br>
+                        Right :
+                        <input type="text" id="marginRight" placeholder="Margin-right" value="10" class="numbers"
+                            changed='true'>
+                        &nbsp; Left :
+                        <input type="text" id="marginLeft" placeholder="Margin-left" value="10" class="numbers"
+                            changed='true'>
+                        &nbsp; Top :
+                        <input type="text" id="marginTop" placeholder="Margin-top" value="10" class="numbers"
+                            changed='true'>
+                        &nbsp; Bottom :
+                        <input type="text" id="marginBottom" placeholder="Margin-bottom" value="10" class="numbers"
+                            changed='true'>
+                    </p>
+                    <p class="groups">
+                        <u style="font-size: 2vh;">Padding :</u> <br> <br>
+                        Right :
+                        <input type="text" id="paddingRight" placeholder="Padding-right" value="5" class="numbers"
+                            changed='true'>
+                        &nbsp; Left :
+                        <input type="text" id="paddingLeft" placeholder="Padding-left" value="5" class="numbers"
+                            changed='true'>
+                        &nbsp; Top :
+                        <input type="text" id="paddingTop" placeholder="Padding-top" value="5" class="numbers"
+                            changed='true'>
+                        &nbsp; Bottom :
+                        <input type="text" id="paddingBottom" placeholder="Padding-bottom" value="5" class="numbers"
+                            changed='true'>
+                    </p>
+                    <p class="groups">
+                        Letter-spacing :
+                        <input type="text" id="letterSpacing" placeholder="Letter-spacing" class="numbers">
+                    </p>
+                    <p class="groups">
+                        Line-height :
+                        <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
+                    </p>
                 </div>
 
                 <div class="borders">
                     <div id="border">
-                        <select id="borderRightStyle" placeholder="border-right-style" changed='true'>
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <select id="borderLeftStyle" placeholder="border-left-style" changed='true'>
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <select id="borderTopStyle" placeholder="border-top-style" changed='true'>
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                        <select id="borderBottomStyle" placeholder="border-bottom-style" changed='true'>
-                            <option value="none">None</option>
-                            <option value="dotted">Dotted</option>
-                            <option value="dashed">Dashed</option>
-                            <option selected value="solid">Solid</option>
-                            <option value="double">Double</option>
-                            <option value="groove">Groove</option>
-                            <option value="ridge">Ridge</option>
-                            <option value="inset">Inset</option>
-                            <option value="outset">Outset</option>
-                        </select>
-                    </div>
-
-                    <div id="borderWidthParent">
-                        <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
-                            step="1" changed='true'> <label for="borderWidth">0</label>
+                        <p class="groups">
+                            <u style="font-size: 2vh;">Border-style :</u> <br> <br>
+                            Right :
+                            <select id="borderRightStyle" placeholder="border-right-style" changed='true'>
+                                <option value="none">None</option>
+                                <option value="dotted">Dotted</option>
+                                <option value="dashed">Dashed</option>
+                                <option selected value="solid">Solid</option>
+                                <option value="double">Double</option>
+                                <option value="groove">Groove</option>
+                                <option value="ridge">Ridge</option>
+                                <option value="inset">Inset</option>
+                                <option value="outset">Outset</option>
+                            </select>
+                            &nbsp; Left :
+                            <select id="borderLeftStyle" placeholder="border-left-style" changed='true'>
+                                <option value="none">None</option>
+                                <option value="dotted">Dotted</option>
+                                <option value="dashed">Dashed</option>
+                                <option selected value="solid">Solid</option>
+                                <option value="double">Double</option>
+                                <option value="groove">Groove</option>
+                                <option value="ridge">Ridge</option>
+                                <option value="inset">Inset</option>
+                                <option value="outset">Outset</option>
+                            </select>
+                            &nbsp; Top :
+                            <select id="borderTopStyle" placeholder="border-top-style" changed='true'>
+                                <option value="none">None</option>
+                                <option value="dotted">Dotted</option>
+                                <option value="dashed">Dashed</option>
+                                <option selected value="solid">Solid</option>
+                                <option value="double">Double</option>
+                                <option value="groove">Groove</option>
+                                <option value="ridge">Ridge</option>
+                                <option value="inset">Inset</option>
+                                <option value="outset">Outset</option>
+                            </select>
+                            &nbsp; Bottom :
+                            <select id="borderBottomStyle" placeholder="border-bottom-style" changed='true'>
+                                <option value="none">None</option>
+                                <option value="dotted">Dotted</option>
+                                <option value="dashed">Dashed</option>
+                                <option selected value="solid">Solid</option>
+                                <option value="double">Double</option>
+                                <option value="groove">Groove</option>
+                                <option value="ridge">Ridge</option>
+                                <option value="inset">Inset</option>
+                                <option value="outset">Outset</option>
+                            </select>
+                        </p>
                     </div>
 
                     <div id="borderRadius">
-                        <img style="transform: rotateZ(-90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
-                            class="numbers" value="50" changed='true'>
-                        <img src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
-                            class="numbers" value="50" changed='true'>
-                        <img style="transform: rotateZ(90deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
-                            class="numbers" value="50" changed='true'>
-                        <img style="transform: rotateZ(180deg);" src="./icons/corner.svg" alt="corner">
-                        <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
-                            class="numbers" value="50" changed='true'>
+                        <p class="groups">
+                            <u style="font-size: 2vh;">Border-radius :</u> <br> <br>
+                            Top-left :
+                            <input type="text" id="borderTopLeftRadius" placeholder="border-top-left-radius"
+                                class="numbers" value="50" changed='true'>
+                            &nbsp; Top-right :
+                            <input type="text" id="borderTopRightRadius" placeholder="border-top-right-radius"
+                                class="numbers" value="50" changed='true'>
+                            &nbsp; Bottom-right :
+                            <input type="text" id="borderBottomRightRadius" placeholder="border-bottom-right-radius"
+                                class="numbers" value="50" changed='true'>
+                            &nbsp; Bottom-left :
+                            <input type="text" id="borderBottomLeftRadius" placeholder="border-bottom-left-radius"
+                                class="numbers" value="50" changed='true'>
+                        </p>
+                    </div>
+
+                    <div id="borderWidthParent">
+                        <p class="groups">
+                            Border-width :
+                            <input type="range" id="borderWidth" placeholder="border-width" min="0" max="25" value="2"
+                                step="1" changed='true'> <label for="borderWidth">2px</label>
+                        </p>
                     </div>
                 </div>
-                <div class="colors">
+                <div class="groups colors">
                     <input type="text" id="color" placeholder="Color" value='#ab2de6' changed='true'>
                     <input type="text" id="backgroundColor" placeholder="Background-color" value="#f1f1f1"
                         changed='true'>
@@ -210,7 +295,7 @@
             </div>
 
             <div id="hover">
-                <div class="shadows">
+                <div class="groups shadows">
                     <div id="boxShadow">
                         <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
                         <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
@@ -223,19 +308,19 @@
                     </div>
                 </div>
 
-                <div class="cursor">
+                <div class="groups cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
                 </div>
 
-                <div class="fontStyle">
+                <div class="groups fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight"> <label for="fontWeight">500</label>
                 </div>
 
-                <div class="dimensions">
+                <div class="groups dimensions">
                     <input type="text" id="height" placeholder="Height" class="numbers">
                     <input type="text" id="width" placeholder="Width" class="numbers">
                     <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
@@ -250,7 +335,7 @@
                     <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
-                <div class="borders">
+                <div class="groups borders">
                     <div id="border">
                         <select id="borderRightStyle" placeholder="border-right-style">
                             <option value="none">None</option>
@@ -318,7 +403,7 @@
                             class="numbers radius">
                     </div>
                 </div>
-                <div class="colors">
+                <div class="groups colors">
                     <input type="text" id="color" placeholder="Color" value='#fff' changed='true'>
                     <input type="text" id="backgroundColor" placeholder="Background-color" value="#ab2de6"
                         changed='true'>
@@ -327,7 +412,7 @@
             </div>
 
             <div id="click">
-                <div class="shadows">
+                <div class="groups shadows">
                     <div id="boxShadow">
                         <input type="text" shadowType='boxShadow' id="boxShadowType" placeholder="Shadow-type">
                         <input type="range" min="-100" max="100" step="1" value="0" shadowType='boxShadow'
@@ -340,19 +425,19 @@
                     </div>
                 </div>
 
-                <div class="cursor">
+                <div class="groups cursor">
                     <input type="text" id="cursor" placeholder="Cursor" value="pointer" changed='true'>
                     <input type="text" id="caretColor" placeholder="Caret-Color" value="#fff" change='true'>
                 </div>
 
-                <div class="fontStyle">
+                <div class="groups fontStyle">
                     <input type="text" id="fontFamily" placeholder="Font-family">
                     <input type="text" id="fontSize" placeholder="Font-size" class="numbers">
                     <input type="range" min="0" max="950" step="50" value="500" id="fontWeight"
                         placeholder="font-weight"> <label for="fontWeight">500</label>
                 </div>
 
-                <div class="dimensions">
+                <div class="groups dimensions">
                     <input type="text" id="height" placeholder="Height" class="numbers">
                     <input type="text" id="width" placeholder="Width" class="numbers">
                     <input type="text" id="marginRight" placeholder="Margin-right" class="numbers">
@@ -367,7 +452,7 @@
                     <input type="text" id="lineHeight" placeholder="Line-height" class="numbers">
                 </div>
 
-                <div class="borders">
+                <div class="groups borders">
                     <div id="border">
                         <select id="borderRightStyle" placeholder="border-right-style">
                             <option value="none">None</option>
@@ -435,7 +520,7 @@
                             class="numbers radius">
                     </div>
                 </div>
-                <div class="colors">
+                <div class="groups colors">
                     <input type="text" id="color" placeholder="Color">
                     <input type="text" id="backgroundColor" placeholder="Background-color">
                     <input type="text" id="borderColor" placeholder="Border-color">
