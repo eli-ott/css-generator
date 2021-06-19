@@ -15,6 +15,10 @@
   background: #f1f1f1;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 header {
   text-align: center;
   margin: 5vh 0 0 0;
@@ -115,7 +119,12 @@ div#code div#codeBtn:hover > img {
   -ms-transform: translateY(6px) rotate(360deg);
   -o-transform: translateY(6px) rotate(360deg);
 }
-div#code > div#copyImg > img#copy {
+div#code div#copyImg {
+  position: absolute;
+  left: 15vw;
+  margin-top: -4.5vh;
+}
+div#code div#copyImg > img#copy {
   cursor: pointer;
   width: 3vh;
   transition: 0.3s;

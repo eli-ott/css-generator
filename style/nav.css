@@ -38,9 +38,9 @@ nav input[type=button] {
   outline: none;
   cursor: pointer;
   margin-bottom: 0;
-  padding: 0 1vh;
+  padding: 0 0.7vw;
   height: 4.5vh;
-  font-size: 2vh;
+  font-size: 1.8vh;
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;

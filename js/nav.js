@@ -25,6 +25,7 @@ $(".group").on("click", function () {
 
     $(`[value='${this.value}']`).attr('class', 'group active');
     group = this.value.toLowerCase().camel();
+
     changeGroup();
 });
 
@@ -42,7 +43,11 @@ const changeState = () => {
 //we display the right inputs depending on the user choice
 const changeGroup = () => {
     $(`#${state}`).children().css('display', 'none');
-    $(`.${group}`).eq(groupIndex).css('display', 'unset');
+    if (group != 'cursor') {
+        $(`.${group}`).eq(groupIndex).css('display', 'unset');
+    } else {
+        $(`.${group}`).eq(groupIndex - 1).css('display', "unset");
+    }
 }
 
 $("#cursorGroup").fadeOut(5);

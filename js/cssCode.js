@@ -572,7 +572,6 @@ const crossBrowserCode = () => {
     if (passiveStylesAttribute.includes('transition')) {
         for (let i = 0; i < transitionPrefix.length; i++) {
             passiveStylesAttribute.push(transitionPrefix[i]);
-            console.log(passiveStylesAttribute.indexOf('transition'));
             passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('transition')]);
         }
     }
@@ -580,7 +579,6 @@ const crossBrowserCode = () => {
     if (passiveStylesAttribute.includes('border-radius')) {
         for (let i = 0; i < borderRadiusPrefix.length; i++) {
             passiveStylesAttribute.push(borderRadiusPrefix[i]);
-            console.log(passiveStylesAttribute.indexOf('border-radius'));
             passiveStylesValue.push(passiveStylesValue[passiveStylesAttribute.indexOf('border-radius')]);
         }
     }
