@@ -1,3 +1,5 @@
+console.log('The purpose of this site is not the design but more the concept of changing the button style depending on the inputs and to create a CSS code only with javascript. The design could be a lot better but i really wanted to learn how to create CSS code with javascript so excuse me for se design ;)');
+
 //we're getting the value of the text input.
 $("input[type='text']").on('keypress', function () {
     setTimeout(() => {
